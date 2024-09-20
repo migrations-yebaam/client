@@ -1,20 +1,13 @@
 
 import clsx from 'clsx'
-import React, { FC } from 'react'
 import {Link} from 'react-router-dom'
-import {KTIcon} from '../../../helpers'
+import {KTIcon, toAbsoluteUrl} from '../../../helpers'
 import {useThemeMode} from '../../../partials'
 import {useLayout} from '../../core'
 import {Header} from './Header'
 import {Topbar} from './Topbar'
-import { UserModel } from '../../../../features/auth'
 
-interface HeaderWrapper {
-  currentUser: UserModel; 
-  logout: () => void;
-}
-
-const HeaderWrapper: FC<HeaderWrapper> = ({currentUser, logout}) => {
+export function HeaderWrapper() {
   const {config, classes, attributes} = useLayout()
   const {header, aside} = config
   const {mode} = useThemeMode()
@@ -45,31 +38,26 @@ const HeaderWrapper: FC<HeaderWrapper> = ({currentUser, logout}) => {
         {/* end::Aside mobile toggle */}
 
         <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0 w-lg-225px me-5'>
-        <span className='d-none d-lg-inline h-30px theme-light-show'>LOGO</span>
-
           <Link to='/'>
-            {/* {mode === 'light' && (
+            {mode === 'light' && (
               <img
                 alt='Logo'
                 src={toAbsoluteUrl('media/logos/demo5.svg')}
                 className='d-none d-lg-inline h-30px theme-light-show'
               />
-            )} */}
-            {mode === 'dark' && (
-                          <span>LOGO</span>
-
-              // <img
-              //   alt='Logo'
-              //   src={toAbsoluteUrl('media/logos/demo5-dark.svg')}
-              //   className='d-none d-lg-inline h-30px theme-dark-show'
-              // />
             )}
-            <span className=''>DEV</span>
-            {/* <img
+            {mode === 'dark' && (
+              <img
+                alt='Logo'
+                src={toAbsoluteUrl('media/logos/demo5-dark.svg')}
+                className='d-none d-lg-inline h-30px theme-dark-show'
+              />
+            )}
+            <img
               alt='Logo'
               src={toAbsoluteUrl('media/logos/demo5-mobile.svg')}
               className='d-lg-none h-25px'
-            /> */}
+            />
           </Link>
         </div>
 
@@ -82,11 +70,9 @@ const HeaderWrapper: FC<HeaderWrapper> = ({currentUser, logout}) => {
             )}
           </div>
 
-          <Topbar currentUser={currentUser} logout={logout} />
+          <Topbar />
         </div>
       </div>
     </div>
   )
 }
-
-export {HeaderWrapper}

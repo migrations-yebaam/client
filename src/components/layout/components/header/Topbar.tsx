@@ -1,25 +1,17 @@
 import clsx from 'clsx'
-import React, {FC} from 'react'
+import {FC} from 'react'
 import {KTIcon} from '../../../helpers'
 import {
-  HeaderNotificationsMenu,
   HeaderUserMenu,
   Search,
   ThemeModeSwitcher,
 } from '../../../partials'
-import { UserModel } from '../../../../features/auth'
 
 const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonHeightClass = 'w-30px h-30px w-md-40px h-md-40px',
   toolbarButtonIconSizeClass = 'fs-1'
-  
-interface TopbarProps {
-  currentUser: UserModel; 
-  logout: () => void;
-}
 
-const Topbar: FC<TopbarProps> = ({currentUser, logout}) => {
-
+const Topbar: FC = () => {
   return (
     <div className='d-flex align-items-stretch flex-shrink-0'>
       <div className='topbar d-flex align-items-stretch flex-shrink-0'>
@@ -27,7 +19,8 @@ const Topbar: FC<TopbarProps> = ({currentUser, logout}) => {
         <div className={clsx('d-flex align-items-stretch', toolbarButtonMarginClass)}>
           <Search />
         </div>
-        
+     
+
         {/* CHAT */}
         <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
           {/* begin::Menu wrapper */}
@@ -45,9 +38,11 @@ const Topbar: FC<TopbarProps> = ({currentUser, logout}) => {
           {/* end::Menu wrapper */}
         </div>
 
-        {/* NOTIFICATIONS */}
+   
+
+        {/* Quick links */}
         <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-          {/* begin::Menu- wrapper */}
+          {/* begin::Menu wrapper */}
           <div
             className={clsx(
               'btn btn-icon btn-active-light-primary btn-custom',
@@ -58,13 +53,11 @@ const Topbar: FC<TopbarProps> = ({currentUser, logout}) => {
             data-kt-menu-placement='bottom-end'
             data-kt-menu-flip='bottom'
           >
-            <KTIcon iconName='abstract-36' className={toolbarButtonIconSizeClass} />
+            <KTIcon iconName='element-11' className={toolbarButtonIconSizeClass} />
           </div>
-          <HeaderNotificationsMenu />
           {/* end::Menu wrapper */}
         </div>
 
-    
         {/* begin::Theme mode */}
         <div className={'d-flex align-items-center ms-lg-5'}>
           <ThemeModeSwitcher toggleBtnClass='btn btn-active-light d-flex align-items-center bg-hover-light py-2 px-2 px-md-3' />
@@ -73,23 +66,9 @@ const Topbar: FC<TopbarProps> = ({currentUser, logout}) => {
 
         {/* begin::User */}
         <div className='d-flex align-items-center ms-lg-5' id='kt_header_user_menu_toggle'>
-          <div
-            className='btn btn-active-light d-flex align-items-center bg-hover-light py-2 px-2 px-md-3'
-            data-kt-menu-trigger='click'
-            data-kt-menu-attach='parent'
-            data-kt-menu-placement='bottom-end'
-          >
-            <div className='d-none d-md-flex flex-column align-items-end justify-content-center me-2'>
-              <span className='text-muted fs-7 fw-bold lh-1 mb-2'>Hello</span>
-              <span className='text-gray-900 fs-base fw-bolder lh-1'>{currentUser?.first_name}</span>
-              <span className='text-gray-900 fs-base fw-bolder lh-1'>{currentUser?.last_name}</span>
-            </div>
+          
+          <HeaderUserMenu />
 
-            <div className='symbol symbol-30px symbol-md-40px'>
-              <img src={currentUser?.pic} alt='avatar' />
-            </div>
-          </div>
-          <HeaderUserMenu currentUser={currentUser}  logout={logout}/>
         </div>
         {/* end::User */}
 

@@ -17,14 +17,8 @@ import {
 } from '../assets/ts/components'
 import clsx from 'clsx'
 import {WithChildren} from '../helpers'
-import { UserModel } from '../../features/auth'
 
-interface MasterLayoutProps extends WithChildren {
-  currentUser: UserModel;
-  logout: () => void;
-}
-
-const MasterLayout: FC<MasterLayoutProps> = ({currentUser, logout}) => {
+const MasterLayout: FC<WithChildren> = () => {
   const {classes} = useLayout()
   const location = useLocation()
 
@@ -42,7 +36,7 @@ const MasterLayout: FC<MasterLayoutProps> = ({currentUser, logout}) => {
   return (
     <PageDataProvider>
       <div className='page d-flex flex-column flex-column-fluid'>
-        <HeaderWrapper currentUser={currentUser} logout={logout}/>
+        <HeaderWrapper />
 
         <div
           id='kt_content_container'
@@ -67,16 +61,12 @@ const MasterLayout: FC<MasterLayoutProps> = ({currentUser, logout}) => {
       </div>
 
       {/* begin:: Drawers */}
-      <ActivityDrawer />
-      <RightToolbar />
+    
       <DrawerMessenger />
       {/* end:: Drawers */}
 
-      {/* begin:: Modals */}
-      <InviteUsers />
-      <UpgradePlan />
       {/* end:: Modals */}
-      <ScrollTop />
+      {/* <ScrollTop /> */}
     </PageDataProvider>
   )
 }

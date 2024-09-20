@@ -12,6 +12,7 @@ import HomeHeader from '../shared/header/components/HomeHeader';
 import { saveToSessionStorage, applicationLogout } from '../shared/utils/utils.service';
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { IReduxState } from '../store/store.interface';
+import { MasterLayout } from '../components/layout/MasterLayout';
 
 const AppPage: FC = (): ReactElement => {
   const authUser = useAppSelector((state: IReduxState) => state.authUser);
@@ -50,8 +51,8 @@ const AppPage: FC = (): ReactElement => {
       <Index />
     ) : (
       <>
-        <HomeHeader />
-        <Home />
+  
+        <MasterLayout />
       </>
     );
   } else {

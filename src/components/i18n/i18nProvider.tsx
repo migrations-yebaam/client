@@ -1,5 +1,4 @@
 import {FC} from 'react'
-import {useLang} from './Languague18n'
 import {IntlProvider} from 'react-intl'
 import '@formatjs/intl-relativetimeformat/polyfill'
 import '@formatjs/intl-relativetimeformat/locale-data/en'
@@ -16,6 +15,7 @@ import frMessages from './messages/fr.json'
 import jaMessages from './messages/ja.json'
 import zhMessages from './messages/zh.json'
 import {WithChildren} from '../helpers'
+import { useLang } from './Metronici18n'
 
 const allMessages = {
   de: deMessages,
