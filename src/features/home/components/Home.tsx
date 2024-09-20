@@ -11,6 +11,9 @@ const Home: FC = (): ReactElement => {
     <>
       <h1>HOME login</h1>
       <div>{authUser.email}</div>
+      <div>{authUser.id}</div>
+      <div>{authUser.username}</div>
+      <div>{authUser.quote}quote</div>
     </>
   );
 };
