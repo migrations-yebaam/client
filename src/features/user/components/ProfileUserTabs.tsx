@@ -12,9 +12,9 @@ const ProfileUserTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === `/profile/${id}/overview` && 'active')
+              (location.pathname === `/profile/${id}/` && 'active')
             }
-            to={`/profile/${id}/overview`}
+            to={`/profile/${id}/`}
           >
             Publicaciones
           </Link>

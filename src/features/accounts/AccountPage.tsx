@@ -8,7 +8,7 @@ import { PageLink, PageTitle } from '../../components/layout/core'
 const accountBreadCrumbs: Array<PageLink> = [
   {
     title: 'Account',
-    path: '/crafted/account/overview',
+    path: '/crafted/account/',
     isSeparator: false,
     isActive: false,
   },
@@ -32,7 +32,7 @@ const AccountPage: React.FC = () => {
         }
       >
         <Route
-          path='overview'
+          path=''
           element={
             <>
               <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle>
@@ -49,7 +49,7 @@ const AccountPage: React.FC = () => {
             </>
           }
         />
-        <Route index element={<Navigate to='/crafted/account/overview' />} />
+        <Route index element={<Navigate to='/crafted/account/' />} />
       </Route>
     </Routes>
   )

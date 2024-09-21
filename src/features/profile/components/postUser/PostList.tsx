@@ -29,7 +29,7 @@ const PostList: React.FC<PostList> = ({currentUser}) => {
         <div key={post.id} className="post mb-4 p-3 bg-light rounded">
           <div className="d-flex align-items-center mb-2">
           <img
-            src={currentUser.pic} alt="User"
+            src={''} alt="User"
             className="rounded-circle me-2" 
             style={{ width: '40px', height: '40px', objectFit: 'cover', marginLeft: '-10px' }}
             />

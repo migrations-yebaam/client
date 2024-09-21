@@ -27,13 +27,13 @@ export function AsideMenuMain() {
         fontIcon='bi-archive'
         icon='element-plus'
       >
-        <AsideMenuItemWithSub to='/crafted/pages/profile' title='Profile' hasBullet={true}>
-          <AsideMenuItem to='/crafted/pages/profile/overview' title='Overview' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/projects' title='Projects' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/campaigns' title='Campaigns' hasBullet={true} />
-          <AsideMenuItem to='/crafted/pages/profile/documents' title='Documents' hasBullet={true} />
+        <AsideMenuItemWithSub to='' title='Profile' hasBullet={true}>
+          <AsideMenuItem to='/' title='Overview' hasBullet={true} />
+          <AsideMenuItem to='/projects' title='Projects' hasBullet={true} />
+          <AsideMenuItem to='/campaigns' title='Campaigns' hasBullet={true} />
+          <AsideMenuItem to='/documents' title='Documents' hasBullet={true} />
           <AsideMenuItem
-            to='/crafted/pages/profile/connections'
+            to='/connections'
             title='Connections'
             hasBullet={true}
           />
@@ -54,7 +54,7 @@ export function AsideMenuMain() {
         icon='profile-circle'
         fontIcon='bi-person'
       >
-        <AsideMenuItem to='/crafted/account/overview' title='Overview' hasBullet={true} />
+        <AsideMenuItem to='/crafted/account/' title='Overview' hasBullet={true} />
         <AsideMenuItem to='/crafted/account/settings' title='Settings' hasBullet={true} />
       </AsideMenuItemWithSub>
       <AsideMenuItemWithSub to='/error' title='Errors' fontIcon='bi-sticky' icon='cross-circle'>

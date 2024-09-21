@@ -1,9 +1,13 @@
 
 import React, {useState} from 'react'
 import {defaultAccount, IAccount} from './AccountModel'
+import { useAppSelector } from '../../../../store/store';
+import { IReduxState } from '../../../../store/store.interface';
 
 export function Account() {
   const [data, setData] = useState<IAccount>(defaultAccount)
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
+
   //const [hasError, setHasError] = useState(false);
 
   const updateData = (fieldsToUpdate: Partial<IAccount>) => {

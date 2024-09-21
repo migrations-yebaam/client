@@ -1,8 +1,7 @@
 import React from 'react';
-import { friendModel } from '../../../../shared/interfaces/shared.interface';
 
 type IUserFriendsPanel = {
-  friends: friendModel[];
+  friends: any[];
 };
 
 export const UserFriendsPanel: React.FC<IUserFriendsPanel> = ({friends}) => {
@@ -11,7 +10,7 @@ export const UserFriendsPanel: React.FC<IUserFriendsPanel> = ({friends}) => {
     <div className="user-friends-panel mt-4 p-4 bg-light rounded">
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h5 className="fw-bold">Amigos</h5>
-        <a href="/crafted/pages/profile/friends" className="text-primary">Ver todos los amigos</a>
+        <a href="/" className="text-primary">Ver todos los amigos</a>
       </div>
       <div className="row">
         {friends.map((friend, index) => (

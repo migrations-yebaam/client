@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { FC, ReactElement, useCallback, useEffect, useState } from 'react';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { FC, ReactElement, useCallback, useEffect, useState } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
-
-
-import { addAuthUser } from './auth/reducers/auth.reducer';
-import { useCheckCurrentUserQuery } from './auth/services/auth.service';
-import Index from './index/Index';
-import { saveToSessionStorage, applicationLogout } from '../shared/utils/utils.service';
-import { useAppSelector, useAppDispatch } from '../store/store';
-import { IReduxState } from '../store/store.interface';
-import { MasterLayout } from '../components/layout/MasterLayout';
+import { addAuthUser } from "./auth/reducers/auth.reducer";
+import { useCheckCurrentUserQuery } from "./auth/services/auth.service";
+import Index from "./index/Index";
+import {
+  saveToSessionStorage,
+  applicationLogout,
+} from "../shared/utils/utils.service";
+import { useAppSelector, useAppDispatch } from "../store/store";
+import { IReduxState } from "../store/store.interface";
+import { MasterLayout } from "../components/layout/MasterLayout";
+import { HeaderWrapper } from "../components/layout/components/header/HeaderWrapper";
 
 const AppPage: FC = (): ReactElement => {
   const authUser = useAppSelector((state: IReduxState) => state.authUser);
@@ -18,14 +20,20 @@ const AppPage: FC = (): ReactElement => {
   const [tokenIsValid, setTokenIsValid] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const navigate: NavigateFunction = useNavigate();
-  const { data: currentUserData, isError } = useCheckCurrentUserQuery(undefined, { skip: authUser.uId === null });
+  const { data: currentUserData, isError } = useCheckCurrentUserQuery(
+    undefined,
+    { skip: authUser.uId === null }
+  );
 
   const checkUser = useCallback(async () => {
     try {
       if (currentUserData && currentUserData.user && !appLogout) {
         setTokenIsValid(true);
         dispatch(addAuthUser({ authInfo: currentUserData.user }));
-        saveToSessionStorage(JSON.stringify(true), JSON.stringify(authUser.username));
+        saveToSessionStorage(
+          JSON.stringify(true),
+          JSON.stringify(authUser.username)
+        );
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +57,8 @@ const AppPage: FC = (): ReactElement => {
       <Index />
     ) : (
       <>
-  
+        <HeaderWrapper />
+
         <MasterLayout />
       </>
     );

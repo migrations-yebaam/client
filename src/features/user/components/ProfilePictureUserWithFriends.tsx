@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
+import { IReduxState } from '../../../store/store.interface';
+import { useAppSelector } from '../../../store/store';
 
 const ProfilePictureUserWithFriends: React.FC = () => {
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
 
   return (
     <div className="d-flex align-items-center position-relative mt-n5">
@@ -17,7 +20,7 @@ const ProfilePictureUserWithFriends: React.FC = () => {
 
       <div className="ms-3">
         <div className="text-center">
-          <h2 className="fw-bold">Flower Moreno</h2>
+          <h2 className="fw-bold">{authUser.username}</h2>
         </div>
 
         <div className="d-flex mt-2">

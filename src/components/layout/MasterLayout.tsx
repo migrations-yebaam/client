@@ -36,7 +36,6 @@ const MasterLayout: FC<WithChildren> = () => {
   return (
     <PageDataProvider>
       <div className='page d-flex flex-column flex-column-fluid'>
-        <HeaderWrapper />
 
         <div
           id='kt_content_container'

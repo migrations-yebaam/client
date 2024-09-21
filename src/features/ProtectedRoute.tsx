@@ -4,7 +4,6 @@ import { Navigate, NavigateFunction, useNavigate } from 'react-router-dom';
 
 import { addAuthUser } from './auth/reducers/auth.reducer';
 import { useCheckCurrentUserQuery } from './auth/services/auth.service';
-import HomeHeader from '../shared/header/components/HomeHeader';
 import { saveToSessionStorage, applicationLogout } from '../shared/utils/utils.service';
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { IReduxState } from '../store/store.interface';
@@ -46,7 +45,7 @@ const ProtectedRoute: FC<IProtectedRouteProps> = ({ children }): ReactElement =>
     if (tokenIsValid) {
       return (
         <>
-          {header && header === 'home' && <HomeHeader />}
+          {header}
           {children}
         </>
       );

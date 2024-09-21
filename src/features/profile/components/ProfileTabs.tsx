@@ -11,9 +11,9 @@ const ProfileTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/crafted/pages/profile/overview' && 'active')
+              (location.pathname === '/' && 'active')
             }
-            to='/crafted/pages/profile/posts'
+            to='/'
           >
             Publicaciones
           </Link>
@@ -22,9 +22,9 @@ const ProfileTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/crafted/pages/profile/info-profile' && 'active')
+              (location.pathname === '/' && 'active')
             }
-            to='/crafted/pages/profile/info-profile'
+            to='/'
           >
             Información
           </Link>
@@ -33,9 +33,9 @@ const ProfileTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/crafted/pages/profile/friends' && 'active')
+              (location.pathname === '/' && 'active')
             }
-            to='/crafted/pages/profile/friends'
+            to='/'
           >
             Amigos
           </Link>
@@ -44,9 +44,9 @@ const ProfileTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/crafted/pages/profile/photos' && 'active')
+              (location.pathname === '/' && 'active')
             }
-            to='/crafted/pages/profile/photos'
+            to='/'
           >
             Fotos
           </Link>
@@ -55,9 +55,9 @@ const ProfileTabs: React.FC = () => {
           <Link
             className={
               `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/crafted/pages/profile/videos' && 'active')
+              (location.pathname === '/' && 'active')
             }
-            to='/crafted/pages/profile/videos'
+            to='/'
           >
             Videos
           </Link>

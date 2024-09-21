@@ -2,12 +2,11 @@ import React from 'react';
 import { CoverPhoto } from './CoverPhoto';
 import { ProfilePictureWithFriends } from './ProfilePictureWithFriends';
 import styles from '../scss/ProfileHeaderWithCover.module.scss';
-import { UserModel } from '../../auth';
-import { friendModel } from '../../../shared/interfaces/shared.interface';
+
 
 type ProfileHeaderWithCover = {
-  currentUser: UserModel;
-  friends: friendModel[];
+  currentUser: any;
+  friends: any[];
 };
 
 const ProfileHeaderWithCover: React.FC<ProfileHeaderWithCover> = ({currentUser, friends}) => (

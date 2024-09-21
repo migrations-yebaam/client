@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { ChangeCoverPhotoModal } from './modals/ChangeCoverPhotoModal';
-import { UserModel } from '../../auth';
 
 type CoverPhoto = {
-  currentUser: UserModel;
+  currentUser: any;
 };
 
 const CoverPhoto: React.FC<CoverPhoto>= ({currentUser}) => {
@@ -22,7 +21,7 @@ const CoverPhoto: React.FC<CoverPhoto>= ({currentUser}) => {
   return (
     <div className="position-relative">
       <img
-        src={currentUser.pic}  // Aquí debes poner el link a la foto de portada real. falta portada
+        src={''}  // Aquí debes poner el link a la foto de portada real. falta portada
         alt="Cover"
         className="img-fluid w-100"
         style={{ height: '300px', objectFit: 'cover', cursor: 'pointer' }}  // Agrega el cursor pointer

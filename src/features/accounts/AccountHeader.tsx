@@ -156,9 +156,9 @@ const AccountHeader: React.FC = () => {
                   <Link
                     className={
                       `nav-link text-active-primary me-6 ` +
-                      (location.pathname === '/crafted/account/overview' && 'active')
+                      (location.pathname === '/crafted/account/' && 'active')
                     }
-                    to='/crafted/account/overview'
+                    to='/crafted/account/'
                   >
                     Overview
                   </Link>
