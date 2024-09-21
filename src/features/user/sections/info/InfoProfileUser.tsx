@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import { Content } from '../../../../components/layout/components/Content';
 import { InfoUserSidebar } from './InfoSidebar';
 import { InfoUserDetails } from './InfoUserDetails';
@@ -9,19 +9,20 @@ interface InfoProfileUserProps {
   userId: string;
 }
 
-const InfoUser: React.FC<InfoProfileUserProps> = ({ userId }) => {
+const InfoUser: React.FC<InfoProfileUserProps> = ({currentUser, friends}) => {
+  const [selectedInfoSection, onSelectedInfoSection] = useState('Información general');
   return (
     <Content>
       <div className="row">
         <div className="col-md-4">
-          <InfoUserSidebar />
+          <InfoUserSidebar  selectedInfoSection={selectedInfoSection} onSelectedInfoSection={onSelectedInfoSection} />
           
         </div>
         <div className="col-md-8">
-          <InfoUserDetails />
+          <InfoUserDetails  currentUser={currentUser}/>
         </div>
       </div>
-      <UserFriendsList />
+      <UserFriendsList friends={friends} />
      
 
     </Content>

@@ -38,7 +38,7 @@ const [selectedNav, setSelectedNav] = useState('Publicaciones');
     { label: 'Amigos', value: <FriendPage friends={friends}/> },
     { label: 'Fotos', value: <PhotoPage userId={currentUser?.id} /> },
     { label: 'Videos', value: <VideoPage userId={currentUser?.id}  /> },
-    { label: 'Información', value: <InfoUser userId={currentUser?.id} />},
+    { label: 'Información', value: <InfoUser  currentUser={currentUser} friends={friends} />},
   ];
 
   return (

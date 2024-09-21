@@ -1,7 +1,7 @@
 import React from 'react';
 import { InfoDetailUserItem } from './InfoDetailItem';
 
-export const InfoUserDetails: React.FC = () => {
+export const InfoUserDetails: React.FC = ({currentUser}) => {
   const infoDetails = [
     {
       icon: 'bi-briefcase',
