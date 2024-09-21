@@ -2,7 +2,11 @@ import { FC, ReactElement, useEffect, useState } from "react"
 import { friendModel } from "../../models/friendModel";
 import { getMainlyFriends } from "../../services/friends";
 import { getUserById } from "../../services/users";
+import { FriendPage } from "../user/sections/FriendPage";
+import { InfoUser } from "../user/sections/info/InfoProfileUser";
+import { PhotoPage } from "../user/sections/PhotoPage";
 import { PostUser } from "./components/postUser/PostUser";
+import { VideoPage } from "./components/videos/VideoPage";
 import { ProfileHeader } from "./ProfileHeader"
 
 const ProfilePage:FC = (): ReactElement => {
@@ -29,6 +33,14 @@ const [selectedNav, setSelectedNav] = useState('Publicaciones');
     fetchFriendList();
   }, []);
 
+  const sections = [ 
+    { label: 'Publicaciones', value: <PostUser currentUser={currentUser} friends={friends}/> },
+    { label: 'Amigos', value: <FriendPage friends={friends}/> },
+    { label: 'Fotos', value: <PhotoPage userId={currentUser?.id} /> },
+    { label: 'Videos', value: <VideoPage userId={currentUser?.id}  /> },
+    { label: 'Información', value: <InfoUser userId={currentUser?.id} />},
+  ];
+
   return (
     <div>
       <ProfileHeader
@@ -37,10 +49,8 @@ const [selectedNav, setSelectedNav] = useState('Publicaciones');
         onSelectedNav={setSelectedNav}
         currentSelectedNav={selectedNav}
         />
-      {selectedNav  === 'Publicaciones' ? <PostUser currentUser={currentUser} friends={friends}/> : selectedNav}
-
+      <>{sections.map((item) => (selectedNav === item.label ? item.value : null))}</>
     </div>
   )
-}
-
+};
 export default ProfilePage

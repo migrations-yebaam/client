@@ -5,7 +5,7 @@ const ProfileTabs: React.FC = ({ onSelectedNav, currentSelectedNav }) => {
   const navItems = [ 
     'Publicaciones',
     'Información',
-    'Amigositem',
+    'Amigos',
     'Fotos',
     'Videos',
   ];

@@ -2,11 +2,11 @@
 import React from "react";
 import { Navigate, Outlet, Route, Routes, useParams } from "react-router-dom";
 import { ProfileUserHeader } from "./ProfileUserHeader";
-import { PostUser } from "./pages/post/PostUser";
-import { InfoUser } from "./pages/info/InfoProfileUser";
-import { FriendPage } from "./pages/FriendPage";
-import { PhotoPage } from "./pages/PhotoPage";
-import { VideoPage } from "./pages/VideoPage";
+import { PostUser } from "./sections/post/PostUser";
+import { InfoUser } from "./sections/info/InfoProfileUser";
+import { FriendPage } from "./sections/FriendPage";
+import { PhotoPage } from "./sections/PhotoPage";
+import { VideoPage } from "./sections/VideoPage";
 
 const UserProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
