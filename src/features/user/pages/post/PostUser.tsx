@@ -1,35 +1,29 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
-import { Content } from '../../../../components/layout/components/Content';
-import { PostUserDetailsPanel } from './PostUserDetailsPanel';
-import { PhotosPanel } from '../photos/PhotosPanel';
-import { FriendsPanel } from '../friend/FriendsPanel';
+import { friendModel } from '../../../../models/friendModel';
+import { UserModel } from '../../../../models/userModel';
+import { PostList } from '../../../post/PostList';
+import { UserFriendsPanel } from '../../../profile/components/postUser/UserFriendsPanel';
+import { UserPhotosPanel } from '../../../profile/components/postUser/UserPhotosPanel';
+import { UserDetailsPanel } from './PostUserDetailsPanel';
 import { UserPostInput } from './UserPostInput';
 
-interface PostUserProps {
-  userId: string;
-}
-
-const PostUser: React.FC<PostUserProps> = ({ userId }) => {
+export function PostUser({currentUser, friends}: {currentUser: UserModel, friends: friendModel[]}) {
   return (
     <Content>
-    <div className='row g-5 g-xxl-8'>
-      <div className='col-xl-4'>
-      
-        <PostUserDetailsPanel />
-        <PhotosPanel/>
-        <FriendsPanel />
-      </div>
+      <div className='row g-5 g-xxl-8'>
+        <div className='col-xl-4'>
+          <UserDetailsPanel />
+          <UserPhotosPanel /> 
+          <UserFriendsPanel  friends={friends}/>
+        </div>
 
-      <div className='col-xl-8'>
-        <UserPostInput />
-       
-        PostFilters
-        PostListdetail reciente
+        <div className='col-xl-8'>
+          <UserPostInput />
+{/*           <PostFilters />   */} 
+    <PostList  currentUser={currentUser}/> 
+        </div>
       </div>
-    </div>
-  </Content>
-  );
-};
-
-export { PostUser };
+    </Content>
+  )
+}

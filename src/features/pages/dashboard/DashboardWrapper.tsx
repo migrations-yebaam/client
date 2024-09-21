@@ -4,7 +4,7 @@ import { Content } from '../../../components/layout/components/Content';
 import { EnableSidebar } from '../../../components/layout/core';
 import StoriesContainer from '../../histories/components/StoriesContainer';
 import PostCreator from '../../post/PostCreator';
-import PostList from '../../post/PostList';
+// import PostList from '../../post/PostList';
 import { PostData, mockPosts } from '../../post/interfaces/post.interfaces';
 
 const DashboardWrapper: FC = () => {
@@ -21,7 +21,7 @@ const DashboardWrapper: FC = () => {
           <PostCreator />
         </div>
         <div className="mt-4">
-          <PostList posts={posts} />
+          {/* <PostList posts={posts} /> */}
           {posts.length > 0 && (
             <div>
               {/* Aquí puedes poner el contenido que deseas renderizar solo si hay posts */}

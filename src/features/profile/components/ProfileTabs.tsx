@@ -1,67 +1,26 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
-const ProfileTabs: React.FC = () => {
-  const location = useLocation();
+const ProfileTabs: React.FC = ({ onSelectedNav, currentSelectedNav }) => {
+  const listClass = `nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap`;
+  const navItems = [ 
+    'Publicaciones',
+    'Información',
+    'Amigositem',
+    'Fotos',
+    'Videos',
+  ];
 
   return (
     <div className='d-flex overflow-auto h-55px'>
-      <ul className='nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap'>
+      <ul className={listClass}>
+        {navItems.map((item) => (
         <li className='nav-item'>
-          <Link
-            className={
-              `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/' && 'active')
-            }
-            to='/'
-          >
-            Publicaciones
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link
-            className={
-              `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/' && 'active')
-            }
-            to='/'
-          >
-            Información
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link
-            className={
-              `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/' && 'active')
-            }
-            to='/'
-          >
-            Amigos
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link
-            className={
-              `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/' && 'active')
-            }
-            to='/'
-          >
-            Fotos
-          </Link>
-        </li>
-        <li className='nav-item'>
-          <Link
-            className={
-              `nav-link text-active-primary me-6 ` +
-              (location.pathname === '/' && 'active')
-            }
-            to='/'
-          >
-            Videos
-          </Link>
-        </li>
+        <a onClick={() => onSelectedNav(item)}
+              className={`nav-link text-active-primary me-6 ${item === currentSelectedNav && 'active'}`}>
+                {item}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
+import { UserModel } from '../../../models/userModel';
 import { ChangeCoverPhotoModal } from './modals/ChangeCoverPhotoModal';
 
 type CoverPhoto = {
-  currentUser: any;
+  currentUser: UserModel;
 };
 
 const CoverPhoto: React.FC<CoverPhoto>= ({currentUser}) => {
@@ -21,16 +22,16 @@ const CoverPhoto: React.FC<CoverPhoto>= ({currentUser}) => {
   return (
     <div className="position-relative">
       <img
-        src={''}  // Aquí debes poner el link a la foto de portada real. falta portada
+        src={currentUser.pic}
         alt="Cover"
         className="img-fluid w-100"
-        style={{ height: '300px', objectFit: 'cover', cursor: 'pointer' }}  // Agrega el cursor pointer
-        onClick={handleOpenModal} // Abre el modal al hacer clic en la imagen
+        style={{ height: '300px', objectFit: 'cover', cursor: 'pointer' }}
+        onClick={handleOpenModal}
       />
       <button
         className="btn btn-light position-absolute bottom-0 end-0 m-3"
         style={{ cursor: 'pointer' }}
-        onClick={handleOpenModal} // Abre el modal al hacer clic en el botón
+        onClick={handleOpenModal}
       >
         <i className="bi bi-camera-fill me-2"></i> Editar foto de portada
       </button>
