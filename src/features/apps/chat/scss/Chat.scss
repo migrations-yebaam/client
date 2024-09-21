@@ -1,0 +1,15 @@
+.fullscreen-chat {
+    width: calc(100% - 300px); // 300px es el ancho de la barra lateral
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .chat-sidebar {
+    width: 300px;
+    float: left;
+  }
+  
+  .chat-container {
+    display: flex;
+    flex-direction: row;
+  }
+  

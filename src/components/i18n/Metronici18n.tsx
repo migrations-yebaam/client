@@ -35,9 +35,9 @@ const useLang = () => {
   return useContext(I18nContext).selectedLang
 }
 
-const I18nProvider: FC<WithChildren> = ({children}) => {
+const MetronicI18nProvider: FC<WithChildren> = ({children}) => {
   const lang = getConfig()
   return <I18nContext.Provider value={lang}>{children}</I18nContext.Provider>
 }
 
-export {I18nProvider, useLang}
+export {MetronicI18nProvider, useLang}

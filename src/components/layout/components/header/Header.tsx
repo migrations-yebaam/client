@@ -1,4 +1,4 @@
-import React, {FC, useEffect} from 'react'
+import {FC, useEffect} from 'react'
 import {MenuInner} from './MenuInner'
 import {SwapperComponent} from '../../../assets/ts/components'
 

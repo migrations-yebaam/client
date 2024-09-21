@@ -1,18 +1,21 @@
-import { FC, ReactElement } from 'react';
-import { useAppSelector } from 'src/store/store';
-import { IReduxState } from 'src/store/store.interface';
+// import { FC, ReactElement } from 'react';
 
-import { IHomeHeaderProps } from '../interfaces/header.interface';
 
-const HomeHeader: FC<IHomeHeaderProps> = (): ReactElement => {
-  const authUser = useAppSelector((state: IReduxState) => state.authUser);
+// import { IHomeHeaderProps } from '../interfaces/header.interface';
+// import { useAppSelector } from '../../../store/store';
+// import { IReduxState } from '../../../store/store.interface';
 
-  return (
-    <>
-      <div>HEADER</div>
-      <div>{authUser.username}</div>
-    </>
-  );
-};
+// const HomeHeader: FC<IHomeHeaderProps> = (): ReactElement => {
+//   const authUser = useAppSelector((state: IReduxState) => state.authUser);
 
-export default HomeHeader;
+//   return (
+//     <>
+//       <div>HEADER HOME reser</div>
+//       <div>{authUser.username}:username</div>
+//       <div>{authUser.avatarColor}:avatarColor</div>
+//       <div>{authUser.uId}:uId</div>
+//     </>
+//   );
+// };
+
+// export default HomeHeader;

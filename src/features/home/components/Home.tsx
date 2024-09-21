@@ -9,8 +9,11 @@ const Home: FC = (): ReactElement => {
 
   return (
     <>
-      <h1>HOME login</h1>
+      <h1>HOME  main</h1>
       <div>{authUser.email}</div>
+      <div>{authUser.id}</div>
+      <div>{authUser.username}</div>
+      <div>{authUser.quote}quote</div>
     </>
   );
 };

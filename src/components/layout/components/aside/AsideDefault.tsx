@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import clsx from 'clsx';
 import { useLayout } from '../../core';
 import { SidebarComponent } from '../sidebar/SidebarComponent';
