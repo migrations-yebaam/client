@@ -6,7 +6,21 @@ export const initialAuthUserValues: IAuthUser = {
   avatarColor: null,
   id: null,
   uId: null,
-  username: null
+  username: null,
+  authId: null,
+  bgImageId: null,
+  bgImageVersion: null,
+  blocked: false,
+  blockedBy: null,
+  createdAt: null,
+  followersCount: 0,
+  followingCount: 0,
+  profilePicture: null,
+  quote: null,
+  school: null,
+  social: null,
+  work: null,
+  notifications: []
 };
 
 export const PASSWORD_TYPE = {

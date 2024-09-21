@@ -6,6 +6,7 @@ import { NavListComponent } from './NavListComponent';
 export const SidebarComponent: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
 
+
   return (
     <div className="sidebar">
       <UserProfileComponent />

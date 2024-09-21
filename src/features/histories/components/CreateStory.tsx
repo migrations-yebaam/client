@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useAppSelector } from '../../../store/store';
+import { IReduxState } from '../../../store/store.interface';
 
 const CreateStory: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);

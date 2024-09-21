@@ -6,7 +6,6 @@ import StoriesContainer from '../../histories/components/StoriesContainer';
 import PostCreator from '../../post/PostCreator';
 import PostList from '../../post/PostList';
 import { PostData, mockPosts } from '../../post/interfaces/post.interfaces';
-import TestSocke from '../../test/TestSocke';
 
 const DashboardWrapper: FC = () => {
   // Usando los datos simulados
@@ -28,7 +27,6 @@ const DashboardWrapper: FC = () => {
               {/* Aquí puedes poner el contenido que deseas renderizar solo si hay posts */}
               REDNDER
 
-              <TestSocke />
             </div>
           )}
         </div>

@@ -12,6 +12,7 @@ const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonIconSizeClass = 'fs-1'
 
 const Topbar: FC = () => {
+
   return (
     <div className='d-flex align-items-stretch flex-shrink-0'>
       <div className='topbar d-flex align-items-stretch flex-shrink-0'>
@@ -65,10 +66,9 @@ const Topbar: FC = () => {
         {/* end::Theme mode */}
 
         {/* begin::User */}
-        <div className='d-flex align-items-center ms-lg-5' id='kt_header_user_menu_toggle'>
-          
+        <div className='d-flex align-items-center ms-lg-5'>
+      
           <HeaderUserMenu />
-
         </div>
         {/* end::User */}
 
@@ -87,3 +87,6 @@ const Topbar: FC = () => {
 }
 
 export {Topbar}
+
+       
+{/* <HeaderUserMenu /> */}

@@ -9,6 +9,8 @@ import {
   UserInfoModel,
   messageFromClient,
 } from '../../helpers'
+import { useAppSelector } from '../../../store/store'
+import { IReduxState } from '../../../store/store.interface'
 
 type Props = {
   isDrawer?: boolean
@@ -21,6 +23,8 @@ const ChatInner: FC<Props> = ({isDrawer = false}) => {
   const [message, setMessage] = useState<string>('')
   const [messages, setMessages] = useState<MessageModel[]>(bufferMessages)
   const [userInfos] = useState<UserInfoModel[]>(defaultUserInfos)
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
+
 
   const sendMessage = () => {
     const newMessage: MessageModel = {

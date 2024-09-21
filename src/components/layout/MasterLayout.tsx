@@ -4,9 +4,8 @@ import {AsideDefault} from './components/aside/AsideDefault'
 import {Sidebar} from './components/sidebar/Sidebar'
 import {Footer} from './components/Footer'
 import {HeaderWrapper} from './components/header/HeaderWrapper'
-import {ScrollTop} from './components/ScrollTop'
 import {PageDataProvider, useLayout} from './core'
-import {ActivityDrawer, DrawerMessenger, InviteUsers, RightToolbar, UpgradePlan} from '../partials'
+import {DrawerMessenger} from '../partials'
 import {
     DrawerComponent,
     MenuComponent,
@@ -17,6 +16,7 @@ import {
 } from '../assets/ts/components'
 import clsx from 'clsx'
 import {WithChildren} from '../helpers'
+import { DashboardWrapper } from '../../features/pages/dashboard/DashboardWrapper'
 
 const MasterLayout: FC<WithChildren> = () => {
   const {classes} = useLayout()
@@ -50,7 +50,8 @@ const MasterLayout: FC<WithChildren> = () => {
           <div className='wrapper d-flex flex-column flex-row-fluid mt-5 mt-lg-10' id='kt_wrapper'>
             <div className='flex-column-fluid' id='kt_content'>
               <div className='post' id='kt_post'>
-                <Outlet />
+                {/* <Outlet /> */}
+              <DashboardWrapper />
               </div>
             </div>
             <Footer />

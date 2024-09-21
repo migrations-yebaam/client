@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import GifSelector from './GifSelector'; 
 import MediaUploader from './MediaUploader'; 
 import FeelingSelector from './FeelingSelector'; // Importar el nuevo componente
+import { useAppSelector } from '../../store/store';
+import { IReduxState } from '../../store/store.interface';
 
 interface PostModalProps {
   show: boolean;
@@ -11,9 +13,11 @@ interface PostModalProps {
 }
 
 const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
+
   const [addingMedia, setAddingMedia] = useState(false);
   const [showGifSelector, setShowGifSelector] = useState(false);
-  const [showFeelingSelector, setShowFeelingSelector] = useState(false); // Estado para mostrar el selector de sentimientos
+  const [showFeelingSelector, setShowFeelingSelector] = useState(false); 
   const [selectedGif, setSelectedGif] = useState<string | null>(null);
 
   const handleGifSelect = (gifUrl: string) => {
@@ -41,7 +45,7 @@ const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
               style={{ width: '40px', height: '40px', objectFit: 'cover' }} 
             />
             <div className="ml-3">
-              <strong>Flower Moreno</strong>
+              <strong>{authUser.username}</strong>
               <Button 
                 variant="light" 
                 className="d-block mt-1" 
@@ -53,7 +57,7 @@ const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
           </div>
           <textarea
             className="form-control mb-3"
-            placeholder="¿Qué estás pensando, Flower?"
+            placeholder={`¿Qué estás pensando, ${authUser.username}?`}
             rows={3}
             style={{ fontSize: '18px', resize: 'none', border: 'none', outline: 'none' }}
           ></textarea>

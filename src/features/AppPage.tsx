@@ -6,9 +6,7 @@ import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 import { addAuthUser } from './auth/reducers/auth.reducer';
 import { useCheckCurrentUserQuery } from './auth/services/auth.service';
-import Home from './home/components/Home';
 import Index from './index/Index';
-import HomeHeader from '../shared/header/components/HomeHeader';
 import { saveToSessionStorage, applicationLogout } from '../shared/utils/utils.service';
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { IReduxState } from '../store/store.interface';
