@@ -12,8 +12,8 @@ const authSlice = createSlice({
           return {
               ...state,
               ...authInfo,  
-              bgImageId: authInfo.bgImageId || state.email,  // Ejemplo de defaulting
-              user: authInfo.user || state.username,  // Ejemplo de defaulting
+              bgImageId: authInfo.bgImageId || state.email, 
+              user: authInfo.user || state.username, 
           };
       },
       clearAuthUser: () => initialAuthUserValues,

@@ -9,6 +9,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { api } from './api';
 import authReducer from '../features/auth/reducers/auth.reducer';
+import friendReducer from '../features/profile/reducers/friend.reducer';
 import logoutReducer from '../features/auth/reducers/logout.reducer';
 import headerReducer from '../shared/header/reducers/header.reducer';
 import notificationReducer from '../shared/header/reducers/notification.reducer';
@@ -23,6 +24,7 @@ export const combineReducer = combineReducers({
   [api.reducerPath]: api.reducer,
   authUser: authReducer,
   logout: logoutReducer,
+  friend:friendReducer,
   // buyer: buyerReducer,
   // seller: sellerReducer,
   header: headerReducer,

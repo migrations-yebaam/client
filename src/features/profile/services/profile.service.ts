@@ -1,5 +1,5 @@
-import { IResponse } from "../../../shared/shared.interface";
 import { api } from "../../../store/api";
+import { IResponse } from "../interfaces/friend.interface";
 
 export const profileApi = api.injectEndpoints({
   endpoints: (build) => ({

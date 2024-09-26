@@ -23,7 +23,7 @@ const LoginModal: FC<IModalBgProps> = ({ onClose, onToggle, onTogglePassword }):
   const [alertMessage, setAlertMessage] = useState<string>('');
   const [passwordType, setPasswordType] = useState<string>('password');
   const [userInfo, setUserInfo] = useState<ISignInPayload>({
-    username: 'tantep',
+    username: 'jimmy',
     password: 'dym123',
  
   });

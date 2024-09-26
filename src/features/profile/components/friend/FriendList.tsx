@@ -1,23 +1,24 @@
-import React from 'react';
-import { FriendCard } from './FriendCard';
-import { friendModel } from '../../../../shared/interfaces/shared.interface';
+import { FC, ReactElement } from 'react';
+import { useGetFriendsListQuery } from '../../services/friend.service';
 
-type IFriendList = {
-  friends: friendModel[];
-};
+const FriendsList: FC<{ userId: string }> = ({ userId }): ReactElement => {
+  const { data: friendsData, error, isLoading } = useGetFriendsListQuery(userId);
 
-export const FriendList: React.FC<IFriendList> = ({friends}) => {
+  if (isLoading) return <div>Cargando lista de amigos...</div>;
+  if (error) return <div>Error al cargar la lista de amigos</div>;
 
   return (
     <div>
-      {friends.map((friend, index) => (
-        <FriendCard
-          key={index}
-          name={friend.name}
-          mutualFriends={friend.mutualFriends}
-          imageSrc={friend.imageSrc}
-        />
-      ))}
+      <h2>Lista de Amigos</h2>
+      <ul>
+        {friendsData?.friends?.map((friendId: string) => (
+          <li key={friendId}>
+            Amigo con ID: {friendId}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
+
+export default FriendsList;
