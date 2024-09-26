@@ -1,22 +1,15 @@
 import React from 'react';
+import { InfoUserDetails } from '../../../user/sections/info/InfoUserDetails';
 
-export const UserDetailsPanel: React.FC = () => {
+export const UserDetailsPanel: React.FC = ({currentUser}) => {
   return (
     <div className="user-details-panel p-4 bg-light rounded">
       <h5 className="fw-bold">Detalles</h5>
-      <p>soy virgo</p>
+      <p>{currentUser?.bio || currentUser.website}</p>
       <button className="btn btn-secondary mb-3">Editar presentación</button>
-      <ul className="list-unstyled">
-        <li className="mb-2">
-          <i className="bi bi-mortarboard me-2"></i> Estudió Pregrado en Ingeniería de Sistemas e Informática en UNIR - La Universidad Internacional de La Rioja en Colombia
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-mortarboard me-2"></i> Estudió Máster Desarrollo Web Full Stack + MultiCloud en UNIR - La Universidad Internacional de La Rioja en Colombia
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-mortarboard me-2"></i> Estudió en Universidad del Area Andina
-        </li>
-      </ul>
+      <InfoUserDetails
+          selectedInfoSection={'Información general'}
+          currentUser={currentUser}/>
       <button className="btn btn-secondary mb-3">Editar detalles</button>
       <button className="btn btn-secondary">Agregar destacados</button>
     </div>

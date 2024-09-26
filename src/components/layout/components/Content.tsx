@@ -11,7 +11,7 @@ const Content: FC<WithChildren> = ({children}) => {
   }, [location])
 
   return (
-    <div id='kt_content_container' className={clsx('content flex-row-fluid')}>
+    <div id='kt_content_container' className={clsx('content flex-row-fluid p-5')}>
       {children}
     </div>
   )

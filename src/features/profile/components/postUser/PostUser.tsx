@@ -14,8 +14,8 @@ export function PostUser({currentUser, friends}: {currentUser: UserModel, friend
     <Content>
       <div className='row g-5 g-xxl-8'>
         <div className='col-xl-4'>
-          <UserDetailsPanel />
-          <UserPhotosPanel /> 
+          <UserDetailsPanel currentUser={currentUser} />
+          <UserPhotosPanel currentUser={currentUser}/> 
           <UserFriendsPanel  friends={friends}/>
         </div>
 

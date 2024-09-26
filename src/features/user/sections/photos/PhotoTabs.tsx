@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import { PhotoGrid } from './PhotoGrid';
 
-export const PhotoTabs: React.FC = () => {
+export const PhotoTabs: React.FC = ({ photos }) => {
   const [activeTab, setActiveTab] = useState('Fotos');
 
   const tabs = ['Fotos', 'Álbumes'];
-
-  const photos = [
-    { src: 'https://via.placeholder.com/150', id: 1 },
-    { src: 'https://via.placeholder.com/150', id: 2 },
-    { src: 'https://via.placeholder.com/150', id: 3 },
-    { src: 'https://via.placeholder.com/150', id: 4 },
-    { src: 'https://via.placeholder.com/150', id: 5 },
-    { src: 'https://via.placeholder.com/150', id: 6 },
-  ];
-
   return (
     <div className="photo-tabs mt-4">
       <ul className="nav nav-tabs mb-3">

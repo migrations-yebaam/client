@@ -8,7 +8,6 @@ type InfoProfileUserProps = {
   selectedInfoSection: string
 }
 export const InfoUserDetails: React.FC<InfoProfileUserProps> = ({currentUser, selectedInfoSection}) => {
-  console.log({currentUser})
   const infoDetails = [
     {
       icon: 'bi-briefcase',

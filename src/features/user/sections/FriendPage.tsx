@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Content } from '../../../components/layout/components/Content';
 import { friendModel } from '../../../models/friendModel';
 import { FriendList } from '../../profile/components/friend/FriendList';
@@ -9,6 +9,28 @@ type IFriendPage = {
 };
 
 export const FriendPage: React.FC<IFriendPage> = ({friends}) => {
+  const [filterTab, setFilterTab] = useState('Todos los amigos');
+  const filterFriendsByTab = (friends: friendModel[], filterTab: string) => {
+    switch (filterTab) {
+      case 'Todos los amigos':
+        return friends;
+      case 'Agregados recientemente':
+        return [friends[0]];
+      case 'Cumpleaños':
+        return [friends[1]];
+      case 'Ciudad actual':
+        return [friends[0], friends[1]];
+      case 'Ciudad de origen':
+        return friends;
+      case 'Seguidores':
+        return [friends[0], friends[1]];
+      case 'Seguidos':
+        return friends;
+      default:
+        return friends;
+    }
+  }
+  const filteredFriends = filterFriendsByTab(friends, filterTab);
   return (
     <Content>
       <div className="d-flex flex-wrap flex-stack mb-6">
@@ -28,9 +50,8 @@ export const FriendPage: React.FC<IFriendPage> = ({friends}) => {
           </button>
         </div>
       </div>
-
-      <FriendTabs /> {/* añadir filtros de listado de amigos */}
-      <FriendList friends={friends} />
+      <FriendTabs filterTab={filterTab} setFilterTab={setFilterTab} />
+      <FriendList friends={filteredFriends} />
     </Content>
   );
 };

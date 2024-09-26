@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-export const FriendTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('Todos los amigos');
+export const FriendTabs: React.FC = ({filterTab, setFilterTab}) => {
 
   const tabs = [
     'Todos los amigos',
@@ -19,8 +18,8 @@ export const FriendTabs: React.FC = () => {
         {tabs.map((tab) => (
           <li key={tab} className="nav-item">
             <a
-              className={`nav-link ${activeTab === tab ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab)}
+              className={`nav-link ${filterTab === tab ? 'active' : ''}`}
+              onClick={() => setFilterTab(tab)}
               href="#!"
             >
               {tab}
