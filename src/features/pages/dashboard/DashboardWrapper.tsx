@@ -25,7 +25,7 @@ const DashboardWrapper: FC = () => {
           {posts.length > 0 && (
             <div>
               {/* Aquí puedes poner el contenido que deseas renderizar solo si hay posts */}
-              REDNDER
+              REDNDER aqui los post y las utimas novedades de la plataforma
 
             </div>
           )}

@@ -13,7 +13,7 @@ const PostInitiator: React.FC<PostInitiatorProps> = ({ onClick }) => {
   return (
     <div className="p-3 bg-white rounded shadow-sm">
       <div className="d-flex align-items-center mb-3">
-        <img src="/path-to-profile-picture.jpg" alt="Profile" className="rounded-circle" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
+        <img src={authUser.profilePicture || ''} alt="Profile" className="rounded-circle" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
         <Button variant="light" className="ml-3 flex-grow-1 text-left" onClick={onClick}>
           ¿Qué estás pensando, {authUser.username}?
         </Button>

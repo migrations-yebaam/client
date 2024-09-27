@@ -8,6 +8,7 @@ import ProtectedRoute from './features/ProtectedRoute';
 import ProfilePage from './features/profile/ProfilePage';
 import TermsAndConditionsPage from './features/index/pages/TermsAndConditionsPage';
 import PrivacyPolicyPage from './features/index/pages/PrivacyPolicyPage';
+import { MasterLayout } from './components/layout/MasterLayout';
 
 
 const AppRouter: FC = () => {
@@ -34,14 +35,20 @@ const AppRouter: FC = () => {
       element: (
         <Suspense>
           <ProtectedRoute>
-            <Home />
+            <MasterLayout />
           </ProtectedRoute>
         </Suspense>
       )
     },
     {
       path: '/:username/:id',  
-      element: <ProfilePage />,  
+      element: (
+        <Suspense>
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        </Suspense>
+      ) 
     }
 
   ];

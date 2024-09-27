@@ -39,7 +39,7 @@ const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
         <Modal.Body>
           <div className="d-flex align-items-center mb-3">
             <img 
-              src="https://images.unsplash.com/photo-1719205153554-33eb4834cc36?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              src={authUser.profilePicture || ''} 
               alt="Profile" 
               className="rounded-circle" 
               style={{ width: '40px', height: '40px', objectFit: 'cover' }} 
@@ -52,6 +52,8 @@ const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
                 style={{ fontSize: '14px', padding: '3px 10px' }} 
               >
                 <i className="fas fa-globe mr-1"></i> Público
+                {/* <i className="fas fa-globe mr-1"></i> Solo amigos
+                <i className="fas fa-globe mr-1"></i> Privado */}
               </Button>
             </div>
           </div>
