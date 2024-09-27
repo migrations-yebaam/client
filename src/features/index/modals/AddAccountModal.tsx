@@ -20,7 +20,7 @@ const AddAccountModal: React.FC<AddAccountModalProps> = ({ onClose }) => {
           <label htmlFor="remember">Recordar contraseña</label>
         </div>
         <button className="login-modal__button">Iniciar sesión</button>
-        <a href="#" className="login-modal__forgot">¿Olvidaste tu contraseña?</a>
+        <a href="#" className="login-modal__forgot">¿Olvidaste tu contraseñad?</a>
       </div>
     </div>
   );

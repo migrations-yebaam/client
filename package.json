@@ -71,6 +71,7 @@
   "devDependencies": {
     "@types/bootstrap": "5.2.10",
     "@types/chart.js": "2.9.41",
+    "@types/connect-history-api-fallback": "^1.5.4",
     "@types/jest": "29.5.12",
     "@types/lodash": "^4.17.0",
     "@types/node": "22.0.0",
