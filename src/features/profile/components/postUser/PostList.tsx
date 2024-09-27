@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { postModel } from '../../../../shared/interfaces/shared.interface';
 import { getPostByUserId } from '../../../../services/posts';
-import { UserModel } from '../../../auth/index';
 import { useAppSelector } from '../../../../store/store';
 import Post from '../../../post/Post';
+import { postModel } from '../../../../models/postModel';
+import { UserModel } from '../../../../models/userModel';
 
 type PostList = {
   currentUser: UserModel;

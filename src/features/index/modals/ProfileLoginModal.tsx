@@ -1,19 +1,21 @@
 import React from 'react';
-import '../scss/LoginModal.scss';
+import '../../auth/scss/LoginModal.scss'; // Usamos el mismo estilo
 
-interface LoginModalProps {
+interface ProfileLoginModalProps {
+  name?: string;
+  avatarUrl?: string;
   onClose: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
+const ProfileLoginModal: React.FC<ProfileLoginModalProps> = ({ name, avatarUrl, onClose }) => {
   return (
     <div className="login-modal-overlay">
       <div className="login-modal">
         <button className="login-modal__close" onClick={onClose}>
           &times;
         </button>
-        <h2 className="login-modal__title">Iniciar sesión </h2>
-        <input type="text" placeholder="Número de teléfono o correo electrónico" className="login-modal__input" />
+        <img src={avatarUrl} alt={`${name}'s avatar`} className="login-modal__avatar" />
+        <h2 className="login-modal__name">{name}</h2>
         <input type="password" placeholder="Contraseña" className="login-modal__input" />
         <div className="login-modal__remember">
           <input type="checkbox" id="remember" />
@@ -26,4 +28,4 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   );
 };
 
-export default LoginModal;
+export default ProfileLoginModal;

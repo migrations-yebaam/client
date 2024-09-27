@@ -1,11 +1,11 @@
 import React from 'react';
-import '../scss/LoginModal.scss';
+import '../../auth/scss/LoginModal.scss'; // Usamos el mismo estilo
 
-interface LoginModalProps {
+interface AddAccountModalProps {
   onClose: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
+const AddAccountModal: React.FC<AddAccountModalProps> = ({ onClose }) => {
   return (
     <div className="login-modal-overlay">
       <div className="login-modal">
@@ -26,4 +26,4 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
   );
 };
 
-export default LoginModal;
+export default AddAccountModal;

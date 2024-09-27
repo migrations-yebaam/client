@@ -1,0 +1,19 @@
+.recent-login-account {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  
+    &__avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  
+    &__name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #555;
+    }
+  }
+  
