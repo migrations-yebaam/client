@@ -12,6 +12,7 @@ import './components/assets/keenicons/duotone/style.css';
 import './components/assets/keenicons/outline/style.css';
 import './components/assets/keenicons/solid/style.css';
 import './components/assets/sass/style.scss';
+import './index.scss';
 
 
 

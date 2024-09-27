@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../scss/RegisterModal.scss';
+import { Link } from 'react-router-dom';
 
 interface RegisterModalProps {
   onClose: () => void;
@@ -36,8 +37,12 @@ const RegisterModal: React.FC<RegisterModalProps> = ({ onClose }) => {
           <button type="submit" className="register-modal__submit">Registrarte</button>
         </form>
         <p className="register-modal__terms">
-          Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de privacidad y la Política de cookies.
+          Al hacer clic en "Registrarte", aceptas nuestras 
+          <a href="/terminos-y-condiciones" target="_blank" rel="noopener noreferrer">Condiciones</a>, 
+          la <a href="/politica-de-privacidad" target="_blank" rel="noopener noreferrer">Política de privacidad</a> 
+          y la Política de cookies.
         </p>
+
       </div>
     </div>
   );
