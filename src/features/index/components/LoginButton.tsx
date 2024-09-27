@@ -1,9 +1,13 @@
 import React from 'react';
 import '../scss/LoginButton.scss';
 
-const LoginButton: React.FC = () => {
+interface LoginButtonProps {
+  onClick: () => void;
+}
+
+const LoginButton: React.FC<LoginButtonProps> = ({ onClick }) => {
   return (
-    <button type="submit" className="login-button">
+    <button type="button" className="login-button" onClick={onClick}>
       Iniciar sesión
     </button>
   );
