@@ -1,55 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../scss/LoginModal.scss';
-import { ISignInPayload } from '../interfaces/auth.interface';
-import { useAppDispatch } from '../../../store/store';
-import { useNavigate } from 'react-router-dom';
-import { useAuthSchema } from '../hooks/useAuthSchema';
-import { useSignInMutation } from '../services/auth.service';
-import { loginUserSchema } from '../schemes/auth.schema';
-import { addAuthUser } from '../reducers/auth.reducer';
-import { updateHeader } from '../../../shared/header/reducers/header.reducer';
-import { IResponse } from '../../../shared/shared.interface';
-import { saveToSessionStorage } from '../../../shared/utils/utils.service';
-import { updateLogout } from '../reducers/logout.reducer';
 
 interface LoginModalProps {
   onClose: () => void;
 }
 
 const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
-  const [alertMessage, setAlertMessage] = useState<string>('');
-  const [passwordType, setPasswordType] = useState<string>('password');
-  const [userInfo, setUserInfo] = useState<ISignInPayload>({
-    username: 'Jimmy',
-    password: 'dym123',
- 
-  });
-
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const [schemaValidation] = useAuthSchema({ schema: loginUserSchema, userInfo });
-  const [signIn, { isLoading }] = useSignInMutation();
-
-
-  const onLoginUser = async (): Promise<void> => {
-    try {
-      const isValid: boolean = await schemaValidation();
-      if (isValid) {
-        const result: IResponse = await signIn(userInfo).unwrap();
-        setAlertMessage('');
-        dispatch(addAuthUser({ authInfo: result.user }));
-        dispatch(updateLogout(false));
-        dispatch(updateHeader('home'));
-        saveToSessionStorage(JSON.stringify(true), JSON.stringify(result.user?.username));
-        console.log('saveToSessionStorage',result.user)
-        console.log('saveToSessionStorage',JSON.stringify(true), JSON.stringify(result.user?.username))
-      }
-    } catch (error) {
-      console.log(error)
-      // setAlertMessage(error?.data.message);
-    }
-  };
-
   return (
     <div className="login-modal-overlay">
       <div className="login-modal">

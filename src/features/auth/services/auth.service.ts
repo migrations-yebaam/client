@@ -9,7 +9,7 @@ export const authApi = api.injectEndpoints({
     signUp: build.mutation<IResponse, ISignUpPayload>({
       query(body: ISignUpPayload) {
         return {
-          url: '/auth/signup',
+          url: '/signup',
           method: 'POST',
           body
         };
