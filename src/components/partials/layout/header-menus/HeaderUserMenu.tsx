@@ -14,7 +14,7 @@ const HeaderUserMenu: FC<any> = () => {
 
   return (
     <Dropdown show={showMenu} onToggle={() => setShowMenu(!showMenu)}>
-      <Dropdown  id="dropdown-basic" onClick={() => setShowMenu(!showMenu)}>
+      <Dropdown.Toggle id="dropdown-basic" onClick={() => setShowMenu(!showMenu)}>
         <div className='d-flex align-items-center'>
         <img 
         src={authUser.profilePicture || ''}
@@ -24,7 +24,7 @@ const HeaderUserMenu: FC<any> = () => {
       />
           <span > {authUser.username}</span>
         </div>
-¡      </Dropdown>
+     </Dropdown.Toggle>
 
       <Dropdown.Menu className='menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px'>
         <div className='menu-item px-3'>
