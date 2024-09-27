@@ -20,6 +20,8 @@ export default defineConfig({
     outDir: './build'
   },
   server: {
-    port: 3000
-  }
+    port: 3000,
+    historyApiFallback: true,  // Redirigir todas las rutas a index.html
+  },
+  base: './',  // Ajustar la base si es necesario, para asegurar que las rutas se manejen correctamente
 });
