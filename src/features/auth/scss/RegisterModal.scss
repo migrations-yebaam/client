@@ -1,0 +1,113 @@
+.register-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-modal {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+  
+    &__close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    &__subtitle {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &__register-modal_name_inputs_entitie {
+        border: 1px solid black;
+      }
+  
+    &__name-inputs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px; 
+
+    }
+    &__name-inputs-entitie {
+        padding: 5px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+    &__input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%; // Asegurarse que los inputs tomen todo el ancho del contenedor
+
+    }
+  
+    &__birthdate,
+    &__gender {
+      margin-top: 10px;
+      label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+  
+      select {
+        padding: 5px;
+        margin-right: 5px;
+      }
+    }
+  
+    &__terms {
+      font-size: 12px;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    &__submit {
+      width: 100%;
+      background-color: #42b72a;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+  
+      &:hover {
+        background-color: #36a420;
+      }
+    }
+  }
+  

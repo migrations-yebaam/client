@@ -1,73 +1,46 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ChangeEvent, FC, ReactElement, useRef, useState } from 'react';
-import { useDeviceData, useMobileOrientation } from 'react-device-detect';
+import React, { useState } from 'react';
+import '../scss/RegisterModal.scss';
 
+interface RegisterModalProps {
+  onClose: () => void;
+}
 
-import { useAuthSchema } from '../hooks/useAuthSchema';
-import { ISignUpPayload } from '../interfaces/auth.interface';
-import { addAuthUser } from '../reducers/auth.reducer';
-import { updateLogout } from '../reducers/logout.reducer';
-import { registerUserSchema } from '../schemes/auth.schema';
-import { useSignUpMutation } from '../services/auth.service';
-import { updateHeader } from '../../../shared/header/reducers/header.reducer';
-import { IModalBgProps } from '../../../shared/modals/interfaces/modal.interface';
-import ModalBg from '../../../shared/modals/ModalBg';
-import { IResponse } from '../../../shared/shared.interface';
-import { checkImage, readAsBase64 } from '../../../shared/utils/image-utils.service';
-import { saveToSessionStorage } from '../../../shared/utils/utils.service';
-import { useAppDispatch } from '../../../store/store';
-
-const RegisterModal: FC<IModalBgProps> = (): ReactElement => {
-  const mobileOrientation = useMobileOrientation();
-  const deviceData = useDeviceData(window.navigator.userAgent);
-  const [step, setStep] = useState<number>(1);
-  const [alertMessage, setAlertMessage] = useState<string>('');
-  const [passwordType, setPasswordType] = useState<string>('password');
-  const [profileImage, setProfileImage] = useState<string>('https://placehold.co/330x220?text=Profile+Image');
-  const [showImageSelect, setShowImageSelect] = useState<boolean>(false);
-  const [userInfo, setUserInfo] = useState<ISignUpPayload>({
-    username: '',
-    password: '',
-    email: '',
-    avatarColor:'#ffff'
+const RegisterModal: React.FC<RegisterModalProps> = ({ onClose }) => {
+  const [errors, setErrors] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
   });
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const dispatch = useAppDispatch();
-  const [schemaValidation] = useAuthSchema({ schema: registerUserSchema, userInfo });
-  const [signUp, { isLoading }] = useSignUpMutation();
 
-  const handleFileChange = async (event: ChangeEvent): Promise<void> => {
-    const target: HTMLInputElement = event.target as HTMLInputElement;
-    if (target.files) {
-      const file: File = target.files[0];
-      const isValid = checkImage(file, 'image');
-      if (isValid) {
-        const dataImage: string | ArrayBuffer | null = await readAsBase64(file);
-        setProfileImage(`${dataImage}`);
-        setUserInfo({ ...userInfo, profilePicture: `${dataImage}` });
-      }
-      setShowImageSelect(false);
-    }
+  // Suponemos que tienes una función para manejar el envío del formulario
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    // Añadir lógica de validación aquí
   };
 
-  const onRegisterUser = async (): Promise<void> => {
-    try {
-      const isValid: boolean = await schemaValidation();
-      if (isValid) {
-        const result: IResponse = await signUp(userInfo).unwrap();
-        setAlertMessage('');
-        dispatch(addAuthUser({ authInfo: result.user }));
-        dispatch(updateLogout(false));
-        dispatch(updateHeader('home'));
-        saveToSessionStorage(JSON.stringify(true), JSON.stringify(result.user?.username));
-      }
-    } catch (error) {
-      console.log(error)
-      // setAlertMessage(error?.data.message);
-    }
-  };
-
-  return <ModalBg>register</ModalBg>;
+  return (
+    <div className="register-modal-overlay">
+      <div className="register-modal">
+        <button className="register-modal__close" onClick={onClose}>&times;</button>
+        <h2 className="register-modal__title">Registrarte</h2>
+        <p className="register-modal__subtitle">Es rápido y fácil.</p>
+        <form onSubmit={handleSubmit} className="register-modal__inputs">
+          <div className="register-modal__name-inputs-entitie">
+            <input type="text" placeholder="Nombre" className={`register-modal__input ${errors.firstName ? 'register-modal__input--error' : ''}`} />
+            <input type="text" placeholder="Apellido" className="register-modal__input" />
+          </div>
+          <input type="text" placeholder="Número de celular o correo electrónico" className="register-modal__input" />
+          <input type="password" placeholder="Contraseña nueva" className="register-modal__input" />
+          {/* Otros campos de formulario */}
+          <button type="submit" className="register-modal__submit">Registrarte</button>
+        </form>
+        <p className="register-modal__terms">
+          Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de privacidad y la Política de cookies.
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default RegisterModal;

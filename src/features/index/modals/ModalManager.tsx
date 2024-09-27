@@ -1,5 +1,5 @@
 import React from 'react';
-import AddAccountModal from './ddAccountModal';
+import AddAccountModal from './AddAccountModal';
 import ProfileLoginModal from './ProfileLoginModal';
 
 interface ModalManagerProps {
