@@ -14,29 +14,31 @@ const HeaderUserMenu: FC<any> = () => {
 
   return (
     <Dropdown show={showMenu} onToggle={() => setShowMenu(!showMenu)}>
-      <Dropdown.Toggle variant="light" id="dropdown-basic" onClick={() => setShowMenu(!showMenu)}>
+      <Dropdown  id="dropdown-basic" onClick={() => setShowMenu(!showMenu)}>
         <div className='d-flex align-items-center'>
         <img 
-        src="https://images.unsplash.com/photo-1723441857662-d465a52e78d0?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+        src={authUser.profilePicture || ''}
         alt="Profile" 
         className="rounded-circle me-2"
         style={{ width: '50px', height: '50px', objectFit: 'cover' }}
       />
           <span > {authUser.username}</span>
         </div>
-      </Dropdown.Toggle>
+¡      </Dropdown>
 
       <Dropdown.Menu className='menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px'>
         <div className='menu-item px-3'>
           <div className='menu-content d-flex align-items-center px-3'>
             <div className='symbol symbol-50px me-5'>
-              <img alt='Logo' src={'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D'} />
+              <img 
+              alt='Logo' 
+              src={authUser.profilePicture || ''} />
             </div>
             <div className='d-flex flex-column'>
               <div className='fw-bolder d-flex align-items-center fs-5'>
               <span > {authUser.username}</span>
 
-                <span className='badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2'>{authUser.email}</span>
+                {/* <span className='badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2'>{authUser}</span> */}
               </div>
               <span className='text-muted'>{authUser.email}</span>
             </div>
