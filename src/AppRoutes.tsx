@@ -7,6 +7,8 @@ import Home from './features/home/components/Home';
 import ProtectedRoute from './features/ProtectedRoute';
 import UserProfilePage from './features/user/UserProfilePage';
 import ProfilePage from './features/profile/ProfilePage';
+import TermsAndConditionsPage from './features/index/pages/TermsAndConditionsPage';
+import PrivacyPolicyPage from './features/index/pages/PrivacyPolicyPage';
 
 
 // const Layout = ({ backgroundColor = '#fff', children }: { backgroundColor: string; children: ReactNode }): JSX.Element => (
@@ -20,6 +22,16 @@ const AppRouter: FC = () => {
       path: '/',
       element: <AppPage />
     },
+    {
+      path: '/terminos-y-condiciones',
+      element: <TermsAndConditionsPage />
+    },
+    {
+      path: '/politica-de-privacidad',
+      element: <PrivacyPolicyPage />
+    },
+
+
 
 
     {
