@@ -33,49 +33,6 @@ const AppRouter: FC = () => {
       )
     },
     {
-      path: '/:username/:id/*',
-      element: (
-        <Suspense>
-          <ProtectedRoute>
-          <UserProfilePage />
-
-          </ProtectedRoute>
-        </Suspense>
-      ),
-      children: [
-        {
-          path: 'info',
-          element: <UserProfilePage />
-        },
-        {
-          path: 'profile',
-          element: <ProfilePage  />
-        },
-
-        {
-          path: 'friends',
-          element: <UserProfilePage />
-        },
-        {
-          path: 'photos',
-          element: <UserProfilePage />
-        },
-        {
-          path: 'videos',
-          element: <UserProfilePage />
-        },
-        // {
-        //   path: 'manage_orders',
-        //   element: <ManageOrders />
-        // },
-        // {
-        //   path: 'manage_earnings',
-        //   element: <ManageEarnings />
-        // }
-      ]
-    },
-
-    {
       path: '/:username/:id',  
       element: <ProfilePage />,  
     }

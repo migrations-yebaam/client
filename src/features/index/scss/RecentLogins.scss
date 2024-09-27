@@ -1,0 +1,23 @@
+.recent-logins {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin: 20px auto;
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+
+  &__accounts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

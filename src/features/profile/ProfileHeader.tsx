@@ -5,17 +5,13 @@ import { ProfileDetails } from './components/ProfileDetails';
 import { ProfileStats } from './components/ProfileStats';
 import { ProfileTabs } from './components/ProfileTabs';
 import { ProfileHeaderWithCover } from './components/ProfileHeaderWithCover';
-import { useAppSelector } from '../../store/store';
-import { IReduxState } from '../../store/store.interface';
 
 type ProfileHeaderProps = {
   currentUser: any;
   friends: any[];
 };
 
-const ProfileHeader: React.FC<ProfileHeaderProps> = ({ currentUser, friends }) => {
-  // Mover la lógica dentro del cuerpo del componente
-  const authUser = useAppSelector((state: IReduxState) => state.authUser);
+const ProfileHeader: React.FC<ProfileHeaderProps> = ({ currentUser, friends, onSelectedNav, currentSelectedNav }) => {
 
   return (
     <Content>
@@ -30,7 +26,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ currentUser, friends }) =
               </div>
             </div>
           </div>
-          <ProfileTabs />
+          <ProfileTabs onSelectedNav={onSelectedNav} currentSelectedNav={currentSelectedNav} />
         </div>
       </div>
     </Content>
