@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Content } from '../../../components/layout/components/Content';
 import { friendModel } from '../../../models/friendModel';
-import { FriendList } from '../../profile/components/friend/FriendList';
+import FriendsList from '../../profile/components/friend/FriendList';
 import { FriendTabs } from '../../profile/components/friend/FriendTabs';
 
 type IFriendPage = {
@@ -51,7 +51,7 @@ export const FriendPage: React.FC<IFriendPage> = ({friends}) => {
         </div>
       </div>
       <FriendTabs filterTab={filterTab} setFilterTab={setFilterTab} />
-      <FriendList friends={filteredFriends} />
+      <FriendsList friends={filteredFriends} />
     </Content>
   );
 };

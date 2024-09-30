@@ -1,7 +1,7 @@
 import React from 'react';
 import { CoverPhoto } from './CoverPhoto';
 import { ProfilePictureWithFriends } from './ProfilePictureWithFriends';
-import styles from '../scss/ProfileHeaderWithCover.module.scss';
+import styles from '../../../features/user/scss/ProfileHeaderWithCover.module.scss';
 
 
 type ProfileHeaderWithCover = {
