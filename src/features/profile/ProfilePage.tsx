@@ -31,7 +31,7 @@ const authUser = useAppSelector((state: IReduxState) => state.authUser);
     const fetchCurrentUser = async()=>{
       console.log('no es el mismo');
       const fullUser = await getUserById(authUser.token, idUserPage);
-      const composedUser ={...mockUser, ...authUser, ...fullUser }
+      const composedUser ={...mockUser, ...fullUser }
 ;      setCurrentUser(composedUser);
     };
     if(authUser.authId !== idUserPage){fetchCurrentUser()} else {

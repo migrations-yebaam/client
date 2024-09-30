@@ -1,22 +1,6 @@
 import React from 'react';
 
-interface Friend {
-  name: string;
-  mutualFriends: number;
-  avatar: string;
-  isFriend: boolean;
-}
-
-const friendsData: Friend[] = [
-  { name: 'Flower Moreno', mutualFriends: 7, avatar: 'https://via.placeholder.com/50', isFriend: true },
-  { name: 'Jim Oliver Cano', mutualFriends: 2, avatar: 'https://via.placeholder.com/50', isFriend: true },
-  { name: 'Rosangela Rincón', mutualFriends: 1, avatar: 'https://via.placeholder.com/50', isFriend: false },
-  { name: 'Luis Alberto Rodriguez', mutualFriends: 1, avatar: 'https://via.placeholder.com/50', isFriend: false },
-  { name: 'Julian Andres Uribe Toro', mutualFriends: 1, avatar: 'https://via.placeholder.com/50', isFriend: false },
-  { name: 'Luis Daniel Rodriguez', mutualFriends: 1, avatar: 'https://via.placeholder.com/50', isFriend: false },
-];
-
-export const UserFriendsList: React.FC = () => {
+export const UserFriendsList: React.FC = ({friendsData}) => {
   return (
     <div className="friends-list mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
