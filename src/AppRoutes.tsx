@@ -25,11 +25,6 @@ const AppRouter: FC = () => {
       path: '/politica-de-privacidad',
       element: <PrivacyPolicyPage />
     },
- 
-
-
-
-
     {
       path: '/',
       element: (

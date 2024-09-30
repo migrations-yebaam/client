@@ -1,45 +1,56 @@
-import { FC, ReactElement, useEffect } from 'react';
-import { useAppSelector } from '../../store/store';
-import { useGetFriendsSendRequestsQuery } from './services/friend.service';
-import FriendsList from './components/friend/FriendList';
-import SuggestedFriends from './components/friend/SuggestedFriends';
-import SentFriendRequests from './components/friend/SentFriendRequests';
+import { FC, ReactElement, useEffect, useState } from "react"
+import { friendModel } from "../../models/friendModel";
+import { getMainlyFriends } from "../../services/friends";
+import { getUserById } from "../../services/users";
+import { FriendPage } from "../user/sections/FriendPage";
+import { InfoUser } from "../user/sections/info/InfoProfileUser";
+import { PhotoPage } from "../user/sections/PhotoPage";
+import { PostUser } from "./components/postUser/PostUser";
+import { VideoPage } from "./components/videos/VideoPage";
+import { ProfileHeader } from "./ProfileHeader"
 
-const ProfilePage: FC = (): ReactElement => {
-  const authUser = useAppSelector((state) => state.authUser); // Usuario conectado
+const ProfilePage:FC = (): ReactElement => {
 
-  // Obtener amigos del usuario
-  
-  // Obtener lista de usuarios en la página 1
-  
-  // Para enviar solicitudes de amistad
-  
-  // Obtener solicitudes de amistad enviadas
-  const { data: sentRequests, error: sentRequestsError, isLoading: sentRequestsLoading } = useGetFriendsSendRequestsQuery();
+const [currentUser, setCurrentUser] = useState({});
+const [friends, setFriends] = useState<friendModel[]>([]);
+const [selectedNav, setSelectedNav] = useState('Publicaciones');
 
+  useEffect(()=>{
+    const fetchCurrentUser = async()=>{
+      const fullUser = await getUserById('215510789165');
+      console.log({fullUser});
+      setCurrentUser(fullUser);
+    };
+    fetchCurrentUser();
+  }, []);
 
-  // Efecto para manejar las solicitudes de amistad enviadas
-  useEffect(() => {
-    if (sentRequests) {
-      console.log('Solicitudes enviadas:', sentRequests);
-    }
-    if (sentRequestsError) {
-      console.error('Error fetching sent friend requests:', sentRequestsError);
-    }
-  }, [sentRequests, sentRequestsError]);
+  useEffect(()=>{
+    const fetchFriendList = async()=>{
+      const fullFriendList = await getMainlyFriends(215510789165);
+      console.log({fullFriendList});
+      setFriends(fullFriendList);
+    };
+    fetchFriendList();
+  }, []);
 
-  if (sentRequestsLoading) return <div>Cargando solicitudes enviadas...</div>;
+  const sections = [ 
+    { label: 'Publicaciones', value: <PostUser currentUser={currentUser} friends={friends}/> },
+    { label: 'Amigos', value: <FriendPage friends={friends}/> },
+    { label: 'Fotos', value: <PhotoPage userId={currentUser?.id} /> },
+    { label: 'Videos', value: <VideoPage userId={currentUser?.id}  /> },
+    { label: 'Información', value: <InfoUser  currentUser={currentUser} friends={friends} />},
+  ];
 
   return (
     <div>
-      <h1>Amigos de {authUser?.username}</h1>
-
-      <FriendsList userId={authUser?.id || ''} />
-      <SuggestedFriends/>
-      <SentFriendRequests />
-    
+      <ProfileHeader
+        currentUser={currentUser}
+        friends={friends}
+        onSelectedNav={setSelectedNav}
+        currentSelectedNav={selectedNav}
+        />
+      <>{sections.map((item) => (selectedNav === item.label ? item.value : null))}</>
     </div>
-  );
+  )
 };
-
-export default ProfilePage;
+export default ProfilePage
