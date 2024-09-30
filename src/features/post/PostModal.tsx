@@ -26,7 +26,6 @@ const PostModal: React.FC<PostModalProps> = ({ show, onHide }) => {
   };
 
   const handleFeelingSelect = (feeling: string) => {
-    console.log('Selected feeling:', feeling);
     setShowFeelingSelector(false);
   };
 

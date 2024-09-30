@@ -19,16 +19,12 @@ const ProtectedRoute: FC<IProtectedRouteProps> = ({ children }): ReactElement =>
   const dispatch = useAppDispatch();
   const navigate: NavigateFunction = useNavigate();
   const { data, isError } = useCheckCurrentUserQuery();
-  console.log('ProtectedRoute',authUser.email)
-  console.log('ProtectedRoute-data',data?.token)
 
   const checkUser = useCallback(async () => {
     if (data && data.user) {
       setTokenIsValid(true);
       dispatch(addAuthUser({ authInfo: data.user }));
-      console.log('checkUser',data.user)
       saveToSessionStorage(JSON.stringify(true), JSON.stringify(authUser.username));
-      console.log('setsaveToSessionStorage',JSON.stringify(true), JSON.stringify(authUser.username))
     }
 
     if (isError) {

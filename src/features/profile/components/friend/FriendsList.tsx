@@ -54,7 +54,7 @@ export const FriendsList: React.FC = () => {
             <img src={friend.avatar} alt={friend.name} className="rounded-circle me-3" style={{ width: '50px', height: '50px' }} />
             <div>
               <h6 className="mb-0">{friend.name}</h6>
-              <small className="text-muted">{friend.mutualFriends} amigos en común</small>
+              <small className="text-muted">{friend.mutualFriends} amigos en común 'deprecar'</small>
             </div>
             <button className="btn btn-light ms-auto">
               <i className="bi bi-three-dots"></i>

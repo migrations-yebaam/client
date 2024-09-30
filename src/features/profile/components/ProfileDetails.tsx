@@ -17,7 +17,7 @@ const ProfileDetails: React.FC<ProfileDetails> = ({currentUser, friends}) => {
     },
     {
       icon: 'profile-circle',
-      property: `${friends.length} amigos`,
+      property: `${friends?.length} amigos`,
     },
     {
       icon: 'geolocation',

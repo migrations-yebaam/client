@@ -5,44 +5,44 @@ export const friendApi = api.injectEndpoints({
     endpoints: (build) => ({
       sendFriendRequest: build.mutation<IResponse, { receiverId: string }>({
         query: ({ receiverId }) => ({
-          url: `/user/friend/send`,
+          url: `/friend/send`,
           method: 'POST',
           body: { receiverId }
         }),
       }),
       acceptFriendRequest: build.mutation<IResponse, { senderId: string }>({
         query: ({ senderId }) => ({
-          url: `user/friend/accept`,
+          url: `/friend/accept`,
           method: 'PUT',
           body: { senderId }
         }),
       }),
       rejectFriendRequest: build.mutation<IResponse, { senderId: string }>({
         query: ({ senderId }) => ({
-          url: `user/friend/reject`,
+          url: `/friend/reject`,
           method: 'PUT',
           body: { senderId }
         }),
       }),
       cancelFriendRequest: build.mutation<IResponse, { receiverId: string }>({
         query: ({ receiverId }) => ({
-          url: `user/friend/cancel`,
+          url: `/friend/cancel`,
           method: 'DELETE',
           body: { receiverId }
         }),
       }),
       getPendingFriends: build.query<IResponse<ISentFriendRequestsResponse>, string>({
-        query: (receiverId: string) => `user/friend/pending/${receiverId}`,
+        query: (receiverId: string) => `/friend/pending/${receiverId}`,
       }),
       // getFriendsList: build.query<IResponse<IFriend[]>, string>({
       //   query: (userId: string) => `user/friend/list/${userId}`,
       // }),
       getFriendsSendRequests: build.query<IResponse<IFriendRequest[]>, void>({
-        query: () => `user/friend/sent-requests`,
+        query: () => `/friend/sent-requests`,
       }),
       getFriendsList: build.query<IResponse<string[]>, string>({
         query: () => ({
-          url: `/user/friend/list`,
+          url: `/friends`,
           method: 'GET',
           credentials: 'include', 
         }),
@@ -50,7 +50,7 @@ export const friendApi = api.injectEndpoints({
 
       getSuggestedFriends: build.query<IResponse<IUserDocument[]>, void>({
         query: () => ({
-          url: '/user/friend/suggest',
+          url: '/friend/suggest',
           method: 'GET',
           credentials: 'include',
         }),

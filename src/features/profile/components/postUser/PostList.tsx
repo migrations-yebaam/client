@@ -14,17 +14,14 @@ const PostList: React.FC<PostList> = ({currentUser}) => {
 
   const [posts, setPosts] = useState<postModel[]>([]);
   useEffect(() => {
-    console.log({authUser, from: 'list'});
     const fetchPosts = async () => {
       const { data } = await getPostByUserId(authUser);
-      console.log({data});
       setPosts(data);
     }
     fetchPosts();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
-  console.log({posts});
   return (
     <div className="post-list">
       {posts.map(post => (

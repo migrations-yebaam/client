@@ -18,7 +18,6 @@ const getAllPosts = async({token}): Promise<any> => {
 
 const getPostByUserId = async (authUser: any) => {
   const tempPostById = await getAllPosts(authUser);
-  console.log({tempPostById});
   const filteredPost = tempPostById.filter(({userId})=> userId === authUser.authId);
   return {
     id: authUser.id,

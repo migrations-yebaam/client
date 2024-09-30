@@ -20,7 +20,7 @@ export const FriendsPanel: React.FC = () => {
         <a href="#!" className="text-primary">Ver todos los amigos</a>
       </div>
       <div className="row">
-        {friends.map((friend, index) => (
+        {friends?.map((friend, index) => (
           <div key={index} className="col-3 mb-2 text-center">
             <img src={friend.photo} alt={friend.name} className="img-fluid rounded-circle mb-1" />
             <p className="mb-0 small">{friend.name}</p>

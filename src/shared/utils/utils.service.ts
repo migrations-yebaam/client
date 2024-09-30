@@ -49,8 +49,6 @@ export const saveToSessionStorage = (data: string, username: string): void => {
   if (username) {  // Guardar solo si el username es válido
     window.sessionStorage.setItem('isLoggedIn', data);
     window.sessionStorage.setItem('loggedInuser', username);
-    console.log('saveToSessionStorage isLoggedIn', data);
-    console.log('saveToSessionStorage-loggedInuser', username);
   } else {
     console.log('Intento de guardar un usuario no definido');
   }

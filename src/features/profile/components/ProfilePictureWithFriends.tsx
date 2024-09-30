@@ -39,11 +39,11 @@ const ProfilePictureWithFriends: React.FC<ProfilePictureWithFriends> = ({current
 
         <div className="d-flex mt-2">
           {/* Lista de amigos */}
-          {friends.map((friend) => (
+          {friends?.map((friend) => (
             <img
-              key={friend.id}
-              src= {friend.imageSrc}
-              alt={friend.name}
+              key={friend?._id}
+              src= {friend?.imageSrc}
+              alt={friend?.name}
               className="rounded-circle border border-2 border-white"
               style={{ width: '40px', height: '40px', objectFit: 'cover', marginLeft: '-10px' }}
             />
