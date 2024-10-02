@@ -6,6 +6,7 @@ import { UserModel } from "../../models/userModel";
 import { getUserById } from "../../services/users";
 import { useAppSelector } from "../../store/store";
 import { IReduxState } from "../../store/store.interface";
+import { getFriendsInfo } from "../../utils/friends";
 import { FriendPage } from "../user/sections/FriendPage";
 import { InfoUser } from "../user/sections/info/InfoProfileUser";
 import { PhotoPage } from "../user/sections/PhotoPage";
@@ -17,55 +18,41 @@ import { useGetFriendsListQuery } from "./services/friend.service";
 const ProfilePage:FC = (): ReactElement => {
 
 const { id: idUserPage } = useParams<{ id: string; }>();
-
-console.log('IDPAGE:', idUserPage);
-
 const [currentUser, setCurrentUser] = useState<UserModel>({});
 const [selectedNav, setSelectedNav] = useState('Publicaciones');
-const { data: friendsData } = useGetFriendsListQuery(idUserPage);
 const [friends,setFriends] = useState<friendModel[]>([]);
+const { data: friendsData } = useGetFriendsListQuery();
 
 const authUser = useAppSelector((state: IReduxState) => state.authUser);
+const isShowCurrentUser = authUser.authId === idUserPage;
+
+const sections = [ 
+  { label: 'Publicaciones', value: <PostUser currentUser={currentUser} friends={friends}/> },
+  { label: 'Amigos', value: <FriendPage friends={friends}/> },
+  { label: 'Fotos', value: <PhotoPage userId={currentUser?.id} /> },
+  { label: 'Videos', value: <VideoPage userId={currentUser?.id}  /> },
+  { label: 'Información', value: <InfoUser  currentUser={currentUser} friends={friends} />},
+];
 
   useEffect(()=>{
     const fetchCurrentUser = async()=>{
-      console.log('no es el mismo');
-      const fullUser = await getUserById(authUser.token, idUserPage);
-      const composedUser ={...mockUser, ...fullUser }
-;      setCurrentUser(composedUser);
+      const userById = await getUserById(authUser.token, idUserPage);
+      setCurrentUser({...mockUser, ...userById });
     };
-    if(authUser.authId !== idUserPage){fetchCurrentUser()} else {
-      const composedUser ={...mockUser, ...authUser }
-      setCurrentUser(composedUser)
-    }
-  }, []);
+    if(!isShowCurrentUser) fetchCurrentUser();
+    if(isShowCurrentUser) setCurrentUser({...mockUser, ...authUser });
+  }, [idUserPage]);
 
-useEffect(() => {
-    const fetchFriendInfo = async (friend: friendModel) => {
-      const friendInfo = await getUserById(authUser.token, friend._id);
-      return {...friend,...friendInfo};
-    };
-    const getFriendsInfo = async () => {
-      try {
-        const friendsInfoPromises = friendsData?.map(async (friend: any) => await fetchFriendInfo(friend));
-        const friendsInfo = await Promise.all(friendsInfoPromises);
-        setFriends(friendsInfo);
-      } catch (error) {
-        console.error('Error fetching friends info:', error);
-      }
-    };
+  useEffect(() => {
+    if(!isShowCurrentUser) getFriendsInfo(authUser.token, currentUser?.friends, setFriends);
+  },[currentUser]);
 
-    getFriendsInfo();
-  }, [friendsData]);
+  useEffect(() => {
+    if(isShowCurrentUser) setFriends(friendsData);
+  }, [friendsData, currentUser]);
 
-
-  const sections = [ 
-    { label: 'Publicaciones', value: <PostUser currentUser={currentUser} friends={friends}/> },
-    { label: 'Amigos', value: <FriendPage friends={friends}/> },
-    { label: 'Fotos', value: <PhotoPage userId={currentUser?.id} /> },
-    { label: 'Videos', value: <VideoPage userId={currentUser?.id}  /> },
-    { label: 'Información', value: <InfoUser  currentUser={currentUser} friends={friends} />},
-  ];
+  const selectedSection = sections
+    .find((section) => section.label === selectedNav)?.value;
 
   return (
     <div>
@@ -74,8 +61,9 @@ useEffect(() => {
         friends={friends}
         onSelectedNav={setSelectedNav}
         currentSelectedNav={selectedNav}
-        />
-      <>{sections.map((item) => (selectedNav === item.label ? item.value : null))}</>
+      />
+      {selectedSection}
     </div>
-  )
-};export default ProfilePage
+  );
+};
+export default ProfilePage;

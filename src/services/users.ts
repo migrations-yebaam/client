@@ -12,7 +12,7 @@ const getUserById = async (token: any, id: any) => {
     withCredentials: true
   })
   console.log(`responseeeee/ para ${id}`);
-  console.log({user});
+  console.log({ user });
   return { 
     first_name: 'userFirstName',
     last_name: 'userLastName',

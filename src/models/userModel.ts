@@ -49,6 +49,7 @@ export interface AuthModel {
     password: string | undefined
     email: string
     first_name: string
+    friends?: Array<string>
     last_name: string
     fullname?: string
     occupation?: string

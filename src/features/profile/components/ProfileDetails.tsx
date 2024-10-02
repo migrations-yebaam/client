@@ -41,8 +41,8 @@ const ProfileDetails: React.FC<ProfileDetails> = ({currentUser, friends}) => {
       </div>
 
       <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>
-        {detailList.map( item =>(
-          <a className={itemClasses}>
+        {detailList.map( (item, index) =>(
+          <a key={index} className={itemClasses}>
             <KTIcon iconName={item.icon} className='fs-4 me-1' />
             {item.property}
           </a>
