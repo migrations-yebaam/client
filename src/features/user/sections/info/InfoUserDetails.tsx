@@ -4,7 +4,7 @@ import { InfoDetailUserItem } from './InfoDetailItem';
 
 
 type InfoProfileUserProps = {
-  currentUser: UserModel,
+  currentUser?: UserModel,
   selectedInfoSection: string
 }
 export const InfoUserDetails: React.FC<InfoProfileUserProps> = ({currentUser, selectedInfoSection}) => {
