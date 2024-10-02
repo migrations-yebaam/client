@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useAppSelector } from '../../../../store/store';
+import { IReduxState } from '../../../../store/store.interface';
 
 interface CreatePostModalProps {
   show: boolean;
@@ -9,6 +11,7 @@ interface CreatePostModalProps {
 export const CreatePostModal: React.FC<CreatePostModalProps> = ({ show, onClose }) => {
   const [postContent, setPostContent] = useState('');
   const [background, setBackground] = useState<string | null>(null); // Nuevo estado para el fondo
+  const authUser = useAppSelector((state: IReduxState) => state.authUser);
 
   const handlePostChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPostContent(e.target.value);
@@ -37,9 +40,14 @@ export const CreatePostModal: React.FC<CreatePostModalProps> = ({ show, onClose 
       </Modal.Header>
       <Modal.Body>
         <div className="d-flex align-items-center mb-3">
-          <img src="https://via.placeholder.com/40" alt="User" className="rounded-circle me-2" />
+          <img
+            src={authUser.profilePicture || ''}
+            alt="User"
+            className="rounded-circle me-2"
+            style={{ width: '45px', height: '45px', objectFit: 'cover' }} // Ajuste de tamaño a 45x45
+          />
           <div>
-            <h6 className="mb-0">Flower Moreno</h6>
+            <h6 className="mb-0">{authUser.username}</h6>
             <small className="text-muted">Público</small>
           </div>
         </div>

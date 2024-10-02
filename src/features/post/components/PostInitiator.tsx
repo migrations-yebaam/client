@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { useAppSelector } from '../../store/store';
-import { IReduxState } from '../../store/store.interface';
+import { useAppSelector } from '../../../store/store';
+import { IReduxState } from '../../../store/store.interface';
 
 interface PostInitiatorProps {
   onClick: () => void;

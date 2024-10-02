@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 import GifSelector from './GifSelector'; 
 import MediaUploader from './MediaUploader'; 
 import FeelingSelector from './FeelingSelector'; // Importar el nuevo componente
-import { useAppSelector } from '../../store/store';
-import { IReduxState } from '../../store/store.interface';
+import { useAppSelector } from '../../../store/store';
+import { IReduxState } from '../../../store/store.interface';
 
 interface PostModalProps {
   show: boolean;

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { postModel } from '../../models/postModel';
-import { UserModel } from '../../models/userModel';
-import { getPostByUserId } from '../../services/posts';
-import { useAppSelector } from '../../store/store';
+import { postModel } from '../../../models/postModel';
+import { getPostByUserId } from '../../../services/posts';
+import { useAppSelector } from '../../../store/store';
 
 type PostList = {
-  currentUser: UserModel;
+  currentUser: any;
 };
   
 const PostList: React.FC<PostList> = ({currentUser}) => {

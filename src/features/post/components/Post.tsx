@@ -1,7 +1,7 @@
 import React from 'react';
-import { KTIcon } from '../../components/helpers/index';
 import CommentSection from './CommentSection';
 import ReactionBar from './ReactionBar';
+import { KTIcon } from '../../../components/helpers';
 
 
 interface PostProps {
@@ -11,7 +11,7 @@ interface PostProps {
   timestamp: string;
 }
 
-const Post: React.FC<PostProps> = ({ author, image, profilePicture, content, timestamp }) => {
+const Post: React.FC<PostProps> = ({ author, profilePicture, content, timestamp }) => {
   return (
     <div className="post mb-4 p-3 bg-white rounded shadow-sm">
       <div className="d-flex align-items-center mb-2">
@@ -28,7 +28,7 @@ const Post: React.FC<PostProps> = ({ author, image, profilePicture, content, tim
       </div>
       <div className="content d-block mb-3">
         <p className="mb-4">{content}</p>
-        {image && <img src={image} alt="post image" className="w-100img-fluid d-block mx-auto mt-3" /> }
+        {/* {image && <img src={image} alt="post image" className="w-100img-fluid d-block mx-auto mt-3" /> } */}
       </div>
       <ReactionBar />
       <hr />
