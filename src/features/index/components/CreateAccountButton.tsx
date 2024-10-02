@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import '../scss/CreateAccountButton.scss';
 import RegisterModal from '../../auth/components/Register';
 
-const CreateAccountButton: React.FC = () => {
+interface CreateAccountButtonProps {
+  className?: string;
+}
+
+const CreateAccountButton: React.FC<CreateAccountButtonProps> = ({ className }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -15,7 +19,7 @@ const CreateAccountButton: React.FC = () => {
 
   return (
     <>
-      <button className="create-account-button" onClick={handleOpenModal}>
+      <button className={`create-account-button ${className}`} onClick={handleOpenModal}>
         Crear cuenta nueva
       </button>
       {showModal && <RegisterModal onClose={handleCloseModal} />}

@@ -1,13 +1,8 @@
 import {
   FC,
-  lazy,
-  LazyExoticComponent,
   ReactElement,
-  Suspense,
   useEffect,
 } from "react";
-import { IHeader } from "../../shared/header/interfaces/header.interface";
-import CircularPageLoader from "../../shared/page-loader/CircularPageLoader";
 import { saveToSessionStorage } from "../../shared/utils/utils.service";
 import RecentLogins from "./components/RecentLogins";
 import LoginForm from "./components/LoginForm";
@@ -16,9 +11,7 @@ import Footer from "./components/Footer";
 import HeaderLanding from "./components/HeaderLanding";
 import './scss/index.scss';  // Aquí importas el SCSS que hemos creado
 
-const IndexHeader: LazyExoticComponent<FC<IHeader>> = lazy(
-  () => import("../../shared/header/components/Header")
-);
+
 
 const Index: FC = (): ReactElement => {
   useEffect(() => {
