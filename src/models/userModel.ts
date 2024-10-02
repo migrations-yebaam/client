@@ -44,6 +44,8 @@ export interface AuthModel {
   }
   
   export interface UserModel {
+    bgImageUrl(bgImageUrl: any): [any, any]
+    userId: string
     id: number
     username: string | undefined
     password: string | undefined
