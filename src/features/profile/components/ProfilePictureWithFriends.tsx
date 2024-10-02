@@ -30,16 +30,18 @@ const ProfilePictureWithFriends: React.FC<ProfilePictureWithFriendsProps> = ({ f
         const base64Image = await readAsBase64(image);
         const response = await uploadProfileImage({ image: base64Image as string }).unwrap();
         console.log('Profile image uploaded successfully:', response);
-
-        // Actualizar la URL de la imagen de perfil
-        setProfilePictureUrl(response.profilePicture);
-        console.log('setProfilePictureUrl',response.profilePicture)
+  
+        // Actualizar el estado local inmediatamente con la nueva URL de la imagen de perfil
+        if (response.profilePicture && typeof response.profilePicture === 'string') {
+          setProfilePictureUrl(response.profilePicture); // Actualiza el estado para que el cambio sea inmediato
+        }
       } catch (error) {
         console.error('Error uploading profile image:', error);
       }
     }
     setShowProfileModal(false);
   };
+  
 
   return (
     <div className="d-flex align-items-center position-relative mt-n5">

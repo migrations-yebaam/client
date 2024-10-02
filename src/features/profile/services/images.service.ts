@@ -11,6 +11,7 @@ export const imagesApi = api.injectEndpoints({
         method: 'POST',
         body: { image },
       }),
+
     }),
     // Ruta para subir imagen de fondo
     uploadBackgroundImage: build.mutation<IImageResponse, { image: string }>({
