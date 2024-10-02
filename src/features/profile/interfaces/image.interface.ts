@@ -1,5 +1,6 @@
 // interfaces/image.interface.ts
 export interface IImageResponse {
+    profilePicture:any
     bgImageVersion: any;
     bgImageId: any;
     imgVersion: any;
