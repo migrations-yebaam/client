@@ -90,6 +90,8 @@ export interface IAuthResponse {
 // interfaces/auth.interface.ts
 
 export interface IAuthUser {
+  phone: string;
+  address: any;
   email: string | null;           // Email del usuario
   userId: string | null;          // ID único del usuario
   username: string | null;        // Nombre de usuario

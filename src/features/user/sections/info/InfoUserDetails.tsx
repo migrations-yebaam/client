@@ -1,10 +1,9 @@
 import React from 'react';
-import { UserModel } from '../../../../models/userModel';
 import { InfoDetailUserItem } from './InfoDetailItem';
 
 
 type InfoProfileUserProps = {
-  currentUser?: UserModel,
+  currentUser?: any,
   selectedInfoSection: string
 }
 export const InfoUserDetails: React.FC<InfoProfileUserProps> = ({currentUser, selectedInfoSection}) => {
