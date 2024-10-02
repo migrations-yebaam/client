@@ -3,9 +3,10 @@ import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery, FetchBaseQueryError 
 import { getDataFromSessionStorage } from '../shared/utils/utils.service';
 
 // const BASE_ENDPOINT = import.meta.env.VITE_BASE_ENDPOINT;
-const BASE_ENDPOINT = 'http://localhost:5000';
+const BASE_ENDPOINT = 'https://api.serversocial.xyz';
+// const BASE_ENDPOINT = 'http://localhost:5000';
 
-
+// https://api.serversocial.xyz
 const baseQuery = fetchBaseQuery({
   baseUrl: `${BASE_ENDPOINT}/api/v1`,
   prepareHeaders: (headers:any) => {
