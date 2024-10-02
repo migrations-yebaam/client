@@ -27,8 +27,7 @@ export const InfoProfileUser: React.FC = () => {
           <InfoDetails />
         </div>
       </div>
-      <FriendsList />
-      <PhotoTabs />
+{/*  */}      <PhotoTabs />
       <VideoTabs />
       <ReelsTabs />
       <PlacesTabs />
@@ -44,3 +43,4 @@ export const InfoProfileUser: React.FC = () => {
     </Content>
   );
 };
+      <FriendsList />

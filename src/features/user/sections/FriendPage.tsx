@@ -37,7 +37,7 @@ export const FriendPage: React.FC<IFriendPage> = ({friends}) => {
         <h3 className="fw-bolder my-2">
           Lista de amigos
           <span className="fs-6 text-gray-500 fw-bold ms-1">
-            {friends.length}
+            {friends?.length}
           </span>
         </h3>
 
@@ -52,6 +52,6 @@ export const FriendPage: React.FC<IFriendPage> = ({friends}) => {
       </div>
       <FriendTabs filterTab={filterTab} setFilterTab={setFilterTab} />
       <FriendsList friends={filteredFriends} />
-    </Content>
+   </Content>
   );
 };

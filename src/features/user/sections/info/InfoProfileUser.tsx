@@ -29,7 +29,7 @@ const InfoUser: React.FC<InfoProfileUserProps> = ({currentUser, friends}) => {
           currentUser={currentUser}/>
         </div>
       </div>
-      <UserFriendsList friends={friends} />
+      <UserFriendsList friendsData={friends} />
      
 
     </Content>

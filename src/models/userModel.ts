@@ -44,11 +44,14 @@ export interface AuthModel {
   }
   
   export interface UserModel {
+    bgImageUrl(bgImageUrl: any): [any, any]
+    userId: string
     id: number
     username: string | undefined
     password: string | undefined
     email: string
     first_name: string
+    friends?: Array<string>
     last_name: string
     fullname?: string
     occupation?: string

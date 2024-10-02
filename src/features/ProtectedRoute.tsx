@@ -14,21 +14,16 @@ export interface IProtectedRouteProps {
 
 const ProtectedRoute: FC<IProtectedRouteProps> = ({ children }): ReactElement => {
   const authUser = useAppSelector((state: IReduxState) => state.authUser);
-  const header = useAppSelector((state: IReduxState) => state.header);
   const [tokenIsValid, setTokenIsValid] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const navigate: NavigateFunction = useNavigate();
   const { data, isError } = useCheckCurrentUserQuery();
-  console.log('ProtectedRoute',authUser.email)
-  console.log('ProtectedRoute-data',data?.token)
 
   const checkUser = useCallback(async () => {
     if (data && data.user) {
       setTokenIsValid(true);
       dispatch(addAuthUser({ authInfo: data.user }));
-      console.log('checkUser',data.user)
       saveToSessionStorage(JSON.stringify(true), JSON.stringify(authUser.username));
-      console.log('setsaveToSessionStorage',JSON.stringify(true), JSON.stringify(authUser.username))
     }
 
     if (isError) {
@@ -45,7 +40,6 @@ const ProtectedRoute: FC<IProtectedRouteProps> = ({ children }): ReactElement =>
     if (tokenIsValid) {
       return (
         <>
-          {header}
           {children}
         </>
       );

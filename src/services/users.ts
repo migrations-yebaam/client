@@ -1,18 +1,22 @@
 import axios from "axios";
-import { mockUser } from "../mocks/index";
 
 // const API_URL = import.meta.env.VITE_APP_THEME_API_URL;
 const API_URL = 'http://localhost:5000/api/v1'
-const POSTS_URL = `${API_URL}/post`;
+const PROFILE_URL = `${API_URL}/user/profile`;
 
-const getUserById = async (authUser: any) => {
-  const { data: { user } } = await axios.get(`${POSTS_URL}/all/1`, {
+const getUserById = async (token: any, id: any) => {
+  const { data:  user  } = await axios.get(`${PROFILE_URL}/${id}`, {
     headers: {
-      Authorization: `Bearer ${authUser.token}`
+      Authorization: `Bearer ${token}`
     },
     withCredentials: true
   })
-  return mockUser || user;
+  console.log(`responseeeee/ para ${id}`);
+  console.log({ user });
+  return { 
+    first_name: 'userFirstName',
+    last_name: 'userLastName',
+    ...user};
 }
 
 export {

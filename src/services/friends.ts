@@ -13,7 +13,6 @@ const getMainlyFriends = async (id: number) => {
 
 const getMainlyFriendsOld = async({token}): Promise<any> => {
   // const token : string = getDataFromSessionStorage('token');
-  console.log({token})
   const { data: { friends } } = await axios.get(`${POSTS_URL}/user/profile/`, {
     headers: {
       Authorization: `Bearer ${token}`

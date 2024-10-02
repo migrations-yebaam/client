@@ -1,7 +1,7 @@
 
 interface InfoDetailItemProps {
   icon: string;
-  title: string;
+  title: any;
   subtitle: string;
   privacyIcon?: string;
 }

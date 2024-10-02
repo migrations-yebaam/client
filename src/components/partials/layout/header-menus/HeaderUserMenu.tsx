@@ -8,9 +8,6 @@ import { IReduxState } from '../../../../store/store.interface';
 const HeaderUserMenu: FC<any> = () => {
   const [showMenu, setShowMenu] = useState(false); 
   const authUser = useAppSelector((state: IReduxState) => state.authUser);
-  console.log('authUser.authId',authUser.authId)
-  console.log('authUser.uId',authUser.uId)
-  console.log('authUser.uId',authUser.username)
 
   return (
     <Dropdown show={showMenu} onToggle={() => setShowMenu(!showMenu)}>
@@ -48,7 +45,7 @@ const HeaderUserMenu: FC<any> = () => {
         <Dropdown.Divider />
 
         <div className='menu-item px-5'>
-        <Link to={`/${authUser.username}/${authUser.uId}`} className='menu-link px-5'>
+        <Link to={`/user/${authUser.authId}`} className='menu-link px-5'>
             Mi cuenta
           </Link>
         </div>

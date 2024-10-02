@@ -47,8 +47,6 @@ const LoginModal: FC<IModalBgProps> = ({ onClose, onToggle, onTogglePassword }):
           dispatch(updateLogout(false));
           dispatch(updateHeader('home'));
           saveToSessionStorage(JSON.stringify(true), JSON.stringify(result.user?.username));
-          console.log('saveToSessionStorage',result.user)
-          console.log('saveToSessionStorage',JSON.stringify(true), JSON.stringify(result.user?.username))
         }
       }
     } catch (error) {
