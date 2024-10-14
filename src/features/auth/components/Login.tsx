@@ -1,4 +1,3 @@
-import React from 'react';
 import '../scss/LoginModal.scss';
 
 interface LoginModalProps {
@@ -11,12 +10,8 @@ import { addAuthUser } from '../reducers/auth.reducer';
 import { updateLogout } from '../reducers/logout.reducer';
 import { loginUserSchema } from '../schemes/auth.schema';
 import { useSignInMutation } from '../services/auth.service';
-import Alert from '../../../shared/alert/Alert';
-import Button from '../../../shared/button/Button';
 import { updateHeader } from '../../../shared/header/reducers/header.reducer';
-import TextInput from '../../../shared/inputs/TextInput';
 import { IModalBgProps } from '../../../shared/modals/interfaces/modal.interface';
-import ModalBg from '../../../shared/modals/ModalBg';
 import { IResponse } from '../../../shared/shared.interface';
 import { saveToSessionStorage } from '../../../shared/utils/utils.service';
 import { useAppDispatch } from '../../../store/store';

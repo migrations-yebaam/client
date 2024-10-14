@@ -3,6 +3,7 @@ import {useLayout} from '../../core'
 import Advertising from '../../../../features/advertising/Advertising'
 import YourPages from '../../../../features/pages/yourPages/YourPages'
 import Friend from '../../../../features/contact/Friend'
+import Suggestions from '../../../../features/suggestions/components/Suggestions'
 
 export function Sidebar() {
   const {classes} = useLayout()
@@ -21,10 +22,10 @@ export function Sidebar() {
       data-kt-drawer-toggle='#kt_sidebar_toggle'
     >
       {/* SIDEBBAR */}
-      
-      <Advertising />
+      <Suggestions />
+      {/* <Advertising />
       <YourPages />
-      <Friend />
+      <Friend /> */}
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import { createSlice, Slice } from '@reduxjs/toolkit';
-import { INotification, IReduxNotification } from 'src/shared/header/interfaces/header.interface';
+import { INotification, IReduxNotification } from '../interfaces/header.interface';
 
 const initialValue: INotification = {
   hasUnreadMessage: false,
-  hasUnreadNotification: false
+  hasUnreadNotification: false,
+  notifications: []
 };
 
 const notificationSlice: Slice = createSlice({
@@ -17,5 +18,5 @@ const notificationSlice: Slice = createSlice({
   }
 });
 
-export const { updateNotification } = notificationSlice.actions;
+export const { updateNotification } = notificationSlice.actions;  // Aquí se exporta
 export default notificationSlice.reducer;

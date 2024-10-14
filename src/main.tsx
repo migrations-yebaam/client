@@ -24,12 +24,6 @@ import { MetronicI18nProvider } from './components/i18n/Metronici18n.tsx';
 
 const persistor: Persistor = persistStore(store);
 
-// init({
-//   serviceName: 'Jobber Client App',
-//   serverUrl: import.meta.env.VITE_ELASTIC_APM_SERVER,
-//   serviceVersion: '0.0.1',
-//   active: true
-// });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

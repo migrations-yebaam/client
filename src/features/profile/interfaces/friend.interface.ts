@@ -13,17 +13,19 @@ export interface IFriend {
 
 export interface IResponse<T = any> {
   message: string;
-  requests?: T; // Cambiar data por requests para reflejar la estructura correcta
+  requests?: T; 
   friends?:T
   suggestedFriends?:T
+  data:T
+  users:T
 }
 
 export interface ISentFriendRequestsResponse {
-  requests: IFriendRequest[]; // Aquí mantenemos la estructura de requests
+  requests: IFriendRequest[]; 
 }
 
 export interface IReceivedFriendRequestsResponse {
-  requests: IFriendRequest[]; // Igual que en la respuesta de solicitudes recibidas
+  requests: IFriendRequest[]; 
 }
 
 export interface IUserDocument {

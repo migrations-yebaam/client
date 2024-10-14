@@ -3,7 +3,7 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 
 import AppPage from './features/AppPage';
 
-import Home from './features/home/components/Home';
+// import Home from './features/home/components/Home';
 import ProtectedRoute from './features/ProtectedRoute';
 import ProfilePage from './features/profile/ProfilePage';
 import TermsAndConditionsPage from './features/index/pages/TermsAndConditionsPage';
@@ -37,6 +37,16 @@ const AppRouter: FC = () => {
     },
     {
       path: '/user/:id',  
+      element: (
+        <Suspense>
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        </Suspense>
+      ) 
+    },
+    {
+      path: '/suggestion',  
       element: (
         <Suspense>
           <ProtectedRoute>

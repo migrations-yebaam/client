@@ -20,7 +20,9 @@ export const initialAuthUserValues: IAuthUser = {
   school: null,
   social: null,
   work: null,
-  notifications: []
+  notifications: [],
+  phone: "",
+  address: undefined
 };
 
 export const PASSWORD_TYPE = {

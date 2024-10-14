@@ -6,6 +6,8 @@ import StoriesContainer from '../../histories/components/StoriesContainer';
 import PostCreator from '../../post/PostCreator';
 // import PostList from '../../post/PostList';
 import { PostData, mockPosts } from '../../post/interfaces/post.interfaces';
+import NotificationBell from '../../notification/components/NotificationBell';
+import ConnectedUsersComponent from '../../../ConnectedUsersComponent';
 
 const DashboardWrapper: FC = () => {
   // Usando los datos simulados
@@ -26,6 +28,8 @@ const DashboardWrapper: FC = () => {
             <div>
               {/* Aquí puedes poner el contenido que deseas renderizar solo si hay posts */}
               REDNDER aqui los post y las utimas novedades de la plataforma
+              <NotificationBell />
+              <ConnectedUsersComponent />
 
             </div>
           )}

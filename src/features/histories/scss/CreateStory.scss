@@ -16,7 +16,12 @@
   padding: 20px;
   border-radius: 10px;
   width: 90%; // Asegúrate de que se ajuste bien a diferentes pantallas
-  max-width: 400px; // Define un ancho máximo para pantallas grandes
+  // max-width: 400px; // Define un ancho máximo para pantallas grandes
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); // Añadir sombra para destacarlo
+}
+
+
+.main_modal{
+  cursor:pointer;
 }

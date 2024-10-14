@@ -26,6 +26,26 @@ class SocketService {
       socket.connect();
     });
   }
+
+  userConnected(userId: string, username: string) {
+    socket.emit('userConnected', { userId, username });
+  }
+
+  onConnectedUsersUpdate(callback: (users: { uId: string; username: string; isOnline: boolean }[]) => void) {
+    socket.on('connectedUsers', callback);
+  }
+
+  sendFriendRequest(senderId: string, receiverId: string) {
+    socket.emit('sendFriendRequest', { senderId, receiverId });
+  }
+
+  onFriendRequestReceived(callback: (data: any) => void) {
+    socket.on('friendRequestReceived', callback);
+  }
+
+  disconnect() {
+    socket.disconnect();
+  }
 }
 
 export const socketService = new SocketService();

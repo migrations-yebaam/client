@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { IAuthUser } from 'src/features/auth/interfaces/auth.interface';
+import { IAuthUser } from '../../../features/auth/interfaces/auth.interface';
 
 export interface IReduxHeader {
   type: string;
@@ -19,6 +19,7 @@ export interface IReduxNotification {
 export interface INotification {
   hasUnreadMessage?: boolean;
   hasUnreadNotification?: boolean;
+  notifications:string[]
 }
 
 export interface IHomeHeaderProps {

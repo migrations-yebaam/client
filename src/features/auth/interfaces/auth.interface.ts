@@ -43,13 +43,17 @@ export const AUTH_FETCH_STATUS = {
 };
 
 export interface ISignUpPayload {
-  [key: string]: string | null | undefined;
-  username: string;
-  password: string;
+  [key: string]: string | null | undefined |Date;
+  firstName: string;
+  lastName: string;
   email: string;
+  password: string;
+  gender: string;
+  dateOfBirth: Date; 
+  profilePicture: string; 
   avatarColor: string;
-
 }
+
 
 export interface ISignInPayload {
   [key: string]: string | null | undefined;
@@ -95,6 +99,8 @@ export interface IAuthUser {
   email: string | null;           // Email del usuario
   userId: string | null;          // ID único del usuario
   username: string | null;        // Nombre de usuario
+  firstName: string | null;        // Nombre de usuario
+  lastName: string | null;        // Nombre de usuario
   avatarColor: string | null;     // Color del avatar del usuario
   id: number | null;              // ID secundario que podría ser usado internamente
   uId: string | null;             // Otro identificador único
